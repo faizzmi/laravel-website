@@ -9,8 +9,11 @@
 <body>
     <center>
         <h1>Welcome to my dashboard</h1>
-        <p>Welcome to my portfolio! As a Junior Software Engineer, I showcase my coding, design, and collaboration skills.</p> 
+        <p>Welcome to my portfolio! As a Junior Software Engineer, I showcase my coding, design, and collaboration skills.</p>
         <p>Explore projects, view my resume, and let's connect for exciting opportunities! </p>
+        <div style="color: blue">
+            <a href="/restricted">Admin Page</a>
+        </div>
     </center>
 </body>
 </html>
