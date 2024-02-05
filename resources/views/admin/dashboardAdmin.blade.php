@@ -7,10 +7,90 @@
     <title>Faiz Azmi</title>
 </head>
 <body>
-    <center>
-        <h1>Welcome to {{ $data->name }}'s dashboard</h1>
-        <hr>
-        <a href="logout">Logout</a>
-    </center>
+    <h1>Welcome to {{ $data->name }}'s dashboard</h1>
+    
+    <a href="logout">Logout</a>
+    <hr>
+    <div class="about">
+        <h3>About</h3>
+
+        <form method="POST" action="{{ route('create-about') }}">
+            @if(Session::has('success'))
+                <div>{{ Session::get('success')}}</div>
+            @endif
+            @if(Session::has('error'))
+                <div>{{ Session::get('error')}}</div>
+            @endif
+            @csrf
+
+            <div>
+                <label for="job">Job Title</label>
+                <input type="jobTitle" id="jobTitle" name="jobTitle" readonly>
+            </div>
+            
+                <label for="fullname">Name</label>
+                <input type="fullname" id="fullname" name="fullname" readonly>
+            </div>
+
+            <div>
+                <label for="about">About</label>
+                <textarea id="about" name="about" readonly></textarea>
+            </div>
+
+            
+            <button type="submit">Edit</button>
+        </form>
+        </div>
+
+        <div>
+            <h3>Skills</h3>
+        </div>
+        
+        <div>
+            <h3>Education Records</h3>
+
+            <a href="{{ route("create-edu") }}">Add New Education</a>
+            @if(Session::has('success'))
+                <div>{{ Session::get('success')}}</div>
+            @endif
+            @if(Session::has('error'))
+                <div>{{ Session::get('error')}}</div>
+            @endif
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Name</th>
+                        <th>Place</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($educations as $education)
+                        <tr>
+                                <td>{{ $education->from_date }}</td>
+                                <td>{{ $education->to_date }}</td>
+                                <td>{{ $education->education_name }}</td>
+                                <td>{{ $education->place }}</td>
+                                <td>{{ $education->description }}</td>
+                            <td>
+                                <a href="">Edit</a>
+                                <form action="" method="">
+                                    @csrf
+                                    <button type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this education record?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+        </tbody>
+    </table>
+        </div>
+    </div>
 </body>
 </html>
