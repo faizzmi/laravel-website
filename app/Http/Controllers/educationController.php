@@ -44,7 +44,7 @@ class educationController extends Controller
         return view('admin.editEdu', compact('education'));
     }
 
-    public function updateEdu(Request $request, Educations $education)
+    public function updateEdu(Request $request, $id)
     {
         $request->validate([
             'from_date' => 'required|date',
@@ -52,10 +52,27 @@ class educationController extends Controller
             'place' => 'required|string',
         ]);
 
-        $education->update($request->all());
+        $edu = Educations::findOrFail($id);
 
-        return redirect("/dashboard")->with('success', 'Education record updated successfully.');
+        $edu->from_date = $request->from_date;
+        $edu->to_date = $request->to_date;
+        $edu->education_name = $request->education_name;
+        $edu->place = $request->place;
+        $edu->description = $request->description;
+
+        $res = $edu->save();
+
+        // Handle the result of the save operation
+        if ($res) {
+            // Successfully updated, redirect with success message
+            return redirect('dashboard')->with('success', 'Education record updated successfully.');
+        } else {
+            // Handle update failure, redirect back with error message
+            return redirect('dashboard')->with('error', 'Failed to update education record.');
     }
+
+
+        }
 
     public function destroyEdu(Educations $education)
     {

@@ -80,6 +80,7 @@
                                 <a href="{{ route('edit-edu', $education->id) }}">Edit</a>
                                 <form action="{{ route('delete-edu', $education->id) }}" method="POST">
                                     @csrf
+                                    @method('DELETE')
                                     <button type="submit"
                                         onclick="return confirm('Are you sure you want to delete this education record?')">
                                         Delete
