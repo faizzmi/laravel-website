@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\aboutController;
 use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\educationController;
+use App\Http\Controllers\adminDashboardController;
 
 
 /*
@@ -24,7 +25,7 @@ Route::get('/', function () {
 Route::get('/restricted', function(){
     return view('auth/landing-page');
 });
-
+//->middleware('alreadyLoggedIn');middleware('isLoggedIn')->
 Route::get('/login',[AdminAuthController::class,'login'])->middleware('alreadyLoggedIn');
 Route::get('/registration',[AdminAuthController::class,'registration'])->middleware('alreadyLoggedIn');
 Route::post('/register-user',[AdminAuthController::class,'registerUser'])->name('register-user');
@@ -36,7 +37,7 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
     // Route for creating about yourself
-    Route::get('/about', [AdminAuthController::class, 'createAbout'])->name('create-about');
+    Route::post('/about', [aboutController::class, 'createAbout'])->name('create-about');
 
     //Route for education
     Route::prefix('/education')->group(function(){

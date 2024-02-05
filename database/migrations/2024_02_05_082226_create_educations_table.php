@@ -18,7 +18,13 @@ return new class extends Migration
             $table->string('education_name');
             $table->string('place');
             $table->text('description')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

@@ -15,11 +15,11 @@
         <h3>About</h3>
 
         <form method="POST" action="{{ route('create-about') }}">
-            @if(Session::has('success'))
-                <div>{{ Session::get('success')}}</div>
+            @if(Session::has('successAbout'))
+                <div>{{ Session::get('successAbout')}}</div>
             @endif
-            @if(Session::has('error'))
-                <div>{{ Session::get('error')}}</div>
+            @if(Session::has('errorAbout'))
+                <div>{{ Session::get('errorAbout')}}</div>
             @endif
             @csrf
 
@@ -50,11 +50,11 @@
             <h3>Education Records</h3>
 
             <a href="{{ route("create-edu") }}">Add New Education</a>
-            @if(Session::has('success'))
-                <div>{{ Session::get('success')}}</div>
+            @if(Session::has('successEdu'))
+                <div>{{ Session::get('successEdu')}}</div>
             @endif
-            @if(Session::has('error'))
-                <div>{{ Session::get('error')}}</div>
+            @if(Session::has('errorEdu'))
+                <div>{{ Session::get('errorEdu')}}</div>
             @endif
 
             <table class="table">

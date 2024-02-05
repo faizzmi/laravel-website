@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Educations;
+use App\Models\User;
 
 class educationController extends Controller
 {
@@ -31,9 +32,10 @@ class educationController extends Controller
         $edu->education_name = $request->education_name;
         $edu->place = $request->place;
         $edu->description = $request->description;
+        // $edu->user_id = User::id();
         $res = $edu->save();
         if($res){
-            return redirect("/dashboard")->with('success','Education record created successfully.');
+            return redirect("/dashboard")->with('successEdu','Education record created successfully.');
         }else{
             return back()->with('error','Something wrong');
         }
@@ -65,10 +67,10 @@ class educationController extends Controller
         // Handle the result of the save operation
         if ($res) {
             // Successfully updated, redirect with success message
-            return redirect('dashboard')->with('success', 'Education record updated successfully.');
+            return redirect('dashboard')->with('successEdu', 'Education record updated successfully.');
         } else {
             // Handle update failure, redirect back with error message
-            return redirect('dashboard')->with('error', 'Failed to update education record.');
+            return redirect('dashboard')->with('errorEdu', 'Failed to update education record.');
     }
 
 
@@ -78,6 +80,6 @@ class educationController extends Controller
     {
         $education->delete();
 
-        return redirect("/dashboard")->with('success', 'Education record deleted successfully.');
+        return redirect("/dashboard")->with('successEdu', 'Education record deleted successfully.');
     }
 }

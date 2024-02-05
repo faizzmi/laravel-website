@@ -51,15 +51,6 @@ class AdminAuthController extends Controller
             return back()->with('error','This email is not registered.');
         }
     }
-    
-    public function dashboard(){
-        $data = array();
-        if (Session::has('loginId')) {
-            $userId = Session::get('loginId');
-            $data = User::find($userId);
-        }
-        return view('admin.dashboardAdmin', compact('data'));
-    }
     public function logoutUser(){
         if (Session::has('loginId')){
             Session::pull('loginId');

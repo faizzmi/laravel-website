@@ -17,7 +17,7 @@ class aboutController extends Controller
     // Show the form for creating a new resource.
     public function createAbout()
     {
-        return back()->with('success','No add Data');
+        return back()->with('successAbout','No add Data');
     }
 
     // Store a newly created resource in storage.
