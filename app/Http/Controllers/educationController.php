@@ -39,17 +39,12 @@ class educationController extends Controller
         }
     }
 
-    public function show(Educations $education)
+    public function editEdu(Educations $education)
     {
-        return view('educations.show', compact('education'));
+        return view('admin.editEdu', compact('education'));
     }
 
-    public function edit(Educations $education)
-    {
-        return view('educations.edit', compact('education'));
-    }
-
-    public function update(Request $request, Educations $education)
+    public function updateEdu(Request $request, Educations $education)
     {
         $request->validate([
             'from_date' => 'required|date',
@@ -59,15 +54,13 @@ class educationController extends Controller
 
         $education->update($request->all());
 
-        return redirect()->route('educations.index')
-            ->with('success', 'Education record updated successfully.');
+        return redirect("/dashboard")->with('success', 'Education record updated successfully.');
     }
 
-    public function destroy(Educations $education)
+    public function destroyEdu(Educations $education)
     {
         $education->delete();
 
-        return redirect()->route('educations.index')
-            ->with('success', 'Education record deleted successfully.');
+        return redirect("/dashboard")->with('success', 'Education record deleted successfully.');
     }
 }

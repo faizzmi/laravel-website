@@ -40,8 +40,11 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
 
     //Route for education
     Route::prefix('/education')->group(function(){
-        Route::get('/createEdu', [educationController::class, 'createEdu'])->name('create-edu');
-        Route::post('/storeEdu', [educationController::class, 'storeEdu'])->name('store-edu');
+        Route::get('/create', [educationController::class, 'createEdu'])->name('create-edu');
+        Route::post('/store', [educationController::class, 'storeEdu'])->name('store-edu');
+        Route::get('/edit/{education}', [educationController::class, 'editEdu'])->name('edit-edu');
+        Route::put('/update/{education}', [educationController::class, 'updateEdu'])->name('update-edu');
+        Route::delete('/delete/{education}', [EducationController::class, 'destroyEdu'])->name('delete-edu');
     });
 });
 Route::get('/logout',[AdminAuthController::class,'logoutUser']);

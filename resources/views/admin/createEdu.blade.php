@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Faiz Azmi</title>
 </head>
 <body>
     <h1>Add New Education</h1>
@@ -31,6 +31,7 @@
             <label for="description">Description</label>
             <textarea id="description" name="description"></textarea>
         </div>
+        <a href="{{ route('dashboard') }}">cancel</a>
         <button type="submit" >Submit</button>
     </form>
 </body>
