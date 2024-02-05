@@ -37,7 +37,7 @@ class educationController extends Controller
         if($res){
             return redirect("/dashboard")->with('successEdu','Education record created successfully.');
         }else{
-            return back()->with('error','Something wrong');
+            return back()->with('errorEdu','Something wrong');
         }
     }
 
