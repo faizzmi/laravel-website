@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Educations;
-use App\Models\User;
+use Session;
 
 class educationController extends Controller
 {
@@ -26,13 +27,18 @@ class educationController extends Controller
             'education_name' => 'required|string',
             'place' => 'required|string',
         ]);
+        if (Session::has('loginId')) {
+            $userId = Session::get('loginId');
+        }
+
         $edu = new Educations();
+        $edu->user_id = $userId;
         $edu->from_date = $request->from_date;
         $edu->to_date = $request->to_date;
         $edu->education_name = $request->education_name;
         $edu->place = $request->place;
         $edu->description = $request->description;
-        // $edu->user_id = User::id();
+        
         $res = $edu->save();
         if($res){
             return redirect("/dashboard")->with('successEdu','Education record created successfully.');
