@@ -30,4 +30,5 @@
     </div>
     
     <button type="submit">Edit</button>
+    <a href="{{ route('dashboard') }}">cancel</a>
 </form>

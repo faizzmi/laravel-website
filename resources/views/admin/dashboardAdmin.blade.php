@@ -41,6 +41,7 @@
 
         <div>
             <h3>Skills</h3>
+            <a href="">See all projects</a>
         </div>
         
         <div>
