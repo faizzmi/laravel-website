@@ -37,8 +37,8 @@
             <textarea id="description" name="description">{{ $education->description }}</textarea>
             <span>@error('name') {{ $message }} @enderror</span>
         </div>
-        <a href="{{ route('dashboard') }}">cancel</a>
-        <button type="submit" >Submit</button>
+            <button type="submit" >Submit</button>
+            <a href="{{ route('dashboard') }}">cancel</a>
     </form>
 </body>
 </html>

@@ -31,5 +31,6 @@
         <button type="submit">Login</button>
     </form>
     <a href="/registration">Register</a>
+    <a href="/">Back</a>
 </body>
 </html>

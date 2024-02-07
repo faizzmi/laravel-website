@@ -9,7 +9,7 @@
 <body>
     <h1>Welcome to {{ $data->name }}'s dashboard</h1>
     
-    <a href="logout">Logout</a>
+    <a href="dashboard/logout">Logout</a>
     <hr>
     <div class="about">
         <h3>About</h3>
@@ -39,57 +39,72 @@
         
         <a href="{{ route('edit-user', $data->id) }}">Edit</a>
 
+    </div>
+
+    <div>
+        <h3>Skills</h3>
         <div>
-            <h3>Skills</h3>
             <a href="{{ route('project-dashboard') }}">See all projects</a>
         </div>
-        
         <div>
-            <h3>Education Records</h3>
-
-            <a href="{{ route("create-edu") }}">Add New Education</a>
-            @if(Session::has('successEdu'))
-                <div>{{ Session::get('successEdu')}}</div>
-            @endif
-            @if(Session::has('errorEdu'))
-                <div>{{ Session::get('errorEdu')}}</div>
-            @endif
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>From Date</th>
-                        <th>To Date</th>
-                        <th>Name</th>
-                        <th>Place</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($educations as $education)
-                        <tr>
-                                <td>{{ $education->from_date }}</td>
-                                <td>{{ $education->to_date }}</td>
-                                <td>{{ $education->education_name }}</td>
-                                <td>{{ $education->place }}</td>
-                                <td>{{ $education->description }}</td>
-                            <td>
-                                <a href="{{ route('edit-edu', $education->id) }}">Edit</a>
-                                <form action="{{ route('delete-edu', $education->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"
-                                        onclick="return confirm('Are you sure you want to delete this education record?')">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-        </tbody>
-    </table>
+            <a href="">See all awards</a>
         </div>
+    </div>
+        
+    <div>
+        <h3>Education Records</h3>
+
+        <a href="{{ route("create-edu") }}">Add New Education</a>
+        @if(Session::has('successEdu'))
+            <div>{{ Session::get('successEdu')}}</div>
+        @endif
+        @if(Session::has('errorEdu'))
+            <div>{{ Session::get('errorEdu')}}</div>
+        @endif
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Name</th>
+                    <th>Place</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($educations as $education)
+                    <tr>
+                            <td>{{ $education->from_date }}</td>
+                            <td>{{ $education->to_date }}</td>
+                            <td>{{ $education->education_name }}</td>
+                            <td>{{ $education->place }}</td>
+                            <td>{{ $education->description }}</td>
+                        <td>
+                            <a href="{{ route('edit-edu', $education->id) }}">Edit</a>
+                            <form action="{{ route('delete-edu', $education->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    onclick="return confirm('Are you sure you want to delete this education record?')">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h3>Experiences</h3>
+    </div>
+
+    <div>
+        <h3>Contacts</h3>
+    </div>
     </div>
 </body>
 </html>

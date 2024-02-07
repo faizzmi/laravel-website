@@ -31,8 +31,8 @@
             <label for="description">Description</label>
             <textarea id="description" name="description"></textarea>
         </div>
-        <a href="{{ route('dashboard') }}">cancel</a>
         <button type="submit" >Submit</button>
+        <a href="{{ route('dashboard') }}">cancel</a>
     </form>
 </body>
 </html>
