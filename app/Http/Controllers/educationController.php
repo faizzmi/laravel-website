@@ -77,10 +77,8 @@ class educationController extends Controller
         } else {
             // Handle update failure, redirect back with error message
             return redirect('dashboard')->with('errorEdu', 'Failed to update education record.');
-    }
-
-
         }
+    }
 
     public function destroyEdu(Educations $education)
     {

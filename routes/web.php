@@ -37,7 +37,8 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'dashboard'])->name('dashboard');
 
     // Route for creating about yourself
-    Route::post('/about', [aboutController::class, 'createAbout'])->name('create-about');
+    Route::get('/edit/{user}', [AdminAuthController::class, 'editUser'])->name('edit-user');
+    Route::put('/update/{user}', [AdminAuthController::class, 'updateUser'])->name('update-user');
 
     //Route for education
     Route::prefix('/education')->group(function(){

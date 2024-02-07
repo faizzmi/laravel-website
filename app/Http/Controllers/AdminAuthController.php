@@ -15,6 +15,11 @@ class AdminAuthController extends Controller
     public function registration(){
         return view("auth.registration");
     }
+
+    public function editUser(User $user){
+        return view("admin.editUser",compact("user"));
+    }
+
     public function registerUser(Request $request){
         $request->validate([
             'name'=>'required',
@@ -51,6 +56,33 @@ class AdminAuthController extends Controller
             return back()->with('error','This email is not registered.');
         }
     }
+
+    public function updateUser(Request $request){
+        $request->validate([
+            'name' => 'required|string',
+            'jobTitle' => 'string',
+            'about' => 'string',
+        ]);
+        $userId = Session::get('loginId');
+        $user = User::where('id', $userId)->first();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->jobTitle = $request->jobTitle;
+        $user->about = $request->about;
+
+        $res = $user->save();
+
+        if ($res) {
+            return redirect('dashboard')->with('successAbout', 'Education record updated successfully.');
+        } else {
+            return redirect('dashboard')->with('errorAbout', 'Failed to update education record.');
+        }
+    }
+
     public function logoutUser(){
         if (Session::has('loginId')){
             Session::pull('loginId');

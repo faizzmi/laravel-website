@@ -14,33 +14,30 @@
     <div class="about">
         <h3>About</h3>
 
-        <form method="POST" action="{{ route('create-about') }}">
-            @if(Session::has('successAbout'))
-                <div>{{ Session::get('successAbout')}}</div>
-            @endif
-            @if(Session::has('errorAbout'))
-                <div>{{ Session::get('errorAbout')}}</div>
-            @endif
-            @csrf
+        @if(Session::has('successAbout'))
+            <div>{{ Session::get('successAbout')}}</div>
+        @endif
+        @if(Session::has('errorAbout'))
+            <div>{{ Session::get('errorAbout')}}</div>
+        @endif
 
-            <div>
-                <label for="job">Job Title</label>
-                <input type="jobTitle" id="jobTitle" name="jobTitle" readonly>
-            </div>
-            
-                <label for="fullname">Name</label>
-                <input type="fullname" id="fullname" name="fullname" readonly>
-            </div>
+        @method('PUT')
+        @csrf
 
-            <div>
-                <label for="about">About</label>
-                <textarea id="about" name="about" readonly></textarea>
-            </div>
-
-            
-            <button type="submit">Edit</button>
-        </form>
+        <div>
+            <label for="job">Job Title</label>
+            <input type="jobTitle" id="jobTitle" name="jobTitle" value="{{ $data->jobTitle }}" readonly>
+        
+            <label for="fullname">Name</label>
+            <input type="fullname" id="fullname" name="name" value="{{ $data->name }}" readonly>
         </div>
+
+        <div>
+            <label for="about">About</label>
+            <textarea id="about" name="about" readonly>{{ $data->about }}</textarea>
+        </div>
+        
+        <a href="{{ route('edit-user', $data->id) }}">Edit</a>
 
         <div>
             <h3>Skills</h3>
