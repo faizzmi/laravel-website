@@ -1,3 +1,5 @@
+<h1>Edit Profile</h1>
+
 <form method="POST" action="{{ route('update-user', $user->id) }}">
     @if(Session::has('successAbout'))
         <div>{{ Session::get('successAbout')}}</div>
@@ -30,8 +32,8 @@
         <textarea id="about" name="about" >{{ $user->about }}</textarea>
     </div>
     
-    <button type="submit">Edit</button>
-    <a href="{{ route('dashboard') }}">cancel</a>
+    <button type="submit">Save</button>
+    <a href="{{ route('dashboard') }}">Cancel</a>
 </form>
 
 <script>

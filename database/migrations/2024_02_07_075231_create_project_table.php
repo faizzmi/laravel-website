@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('projectName');
             $table->string('developedYear');
-            $table->string('projectDesc');
-            $table->string('linkProject');
+            $table->text('projectDesc')->nullable();
+            $table->string('linkProject')->nullable();
             $table->string('projectType');
             $table->timestamps();
 

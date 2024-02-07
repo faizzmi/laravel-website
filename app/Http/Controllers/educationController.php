@@ -9,12 +9,6 @@ use Session;
 
 class educationController extends Controller
 {
-    public function index()
-    {
-        $educations = Educations::all();
-        return view('admin.dashboardAdmin', compact('educations'));
-    }
-
     public function createEdu()
     {
         return view('admin.createEdu');
@@ -27,9 +21,8 @@ class educationController extends Controller
             'education_name' => 'required|string',
             'place' => 'required|string',
         ]);
-        if (Session::has('loginId')) {
-            $userId = Session::get('loginId');
-        }
+        $userId = Session::get('loginId');
+
 
         $edu = new Educations();
         $edu->user_id = $userId;

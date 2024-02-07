@@ -53,6 +53,11 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     //Route for project
     Route::prefix('/project')->group(function () {
         Route::get('/', [projectController::class, 'projectDashboard'])->name('project-dashboard');
+        Route::get('/create', [projectController::class,'createProject'])->name('create-project');
+        Route::post('/store', [projectController::class, 'storeProject'])->name('store-project');
+        Route::get('/edit/{project}', [projectController::class, 'editeProject'])->name('edit-project');
+        Route::put('/update/{project}', [projectController::class, 'updateProject'])->name('update-project');
+        Route::delete('/delete/{project}', [projectController::class, 'destroyProject'])->name('delete-project');
     });
 
     //Logout
