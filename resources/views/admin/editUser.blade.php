@@ -22,6 +22,7 @@
     
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="New Password">
+        <button type="button" id="togglePassword">Show</button>
     </div>
 
     <div>
@@ -32,3 +33,18 @@
     <button type="submit">Edit</button>
     <a href="{{ route('dashboard') }}">cancel</a>
 </form>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const toggleButton = document.getElementById('togglePassword');
+
+    toggleButton.addEventListener('click', function() {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            toggleButton.textContent = 'Hide';
+        } else {
+            passwordInput.type = 'password';
+            toggleButton.textContent = 'Show';
+        }
+    });
+</script>

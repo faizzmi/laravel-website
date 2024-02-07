@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\projectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\aboutController;
 use App\Http\Controllers\AdminAuthController;
@@ -48,5 +49,12 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
         Route::put('/update/{education}', [educationController::class, 'updateEdu'])->name('update-edu');
         Route::delete('/delete/{education}', [EducationController::class, 'destroyEdu'])->name('delete-edu');
     });
+
+    //Route for project
+    Route::prefix('/project')->group(function () {
+        Route::get('/', [projectController::class, 'projectDashboard'])->name('project-dashboard');
+    });
+
+    //Logout
+    Route::get('/logout',[AdminAuthController::class,'logoutUser']);
 });
-Route::get('/logout',[AdminAuthController::class,'logoutUser']);
