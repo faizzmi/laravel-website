@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\projectController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\aboutController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\educationController;
 use App\Http\Controllers\adminDashboardController;
