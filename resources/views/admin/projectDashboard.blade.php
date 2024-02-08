@@ -37,7 +37,7 @@
                         <td>{{ $project->projectDesc }}</td>
                         <td>{{ $project->projectType }}</td>
                         <td></td>
-                        <td>{{ $project->linkProject }}</td>
+                        <td><a href="{{ $project->linkProject }}" target="_blank">{{ $project->linkProject }}</a></td>
                         <td>
                             <a href="{{ route('edit-project', $project->id) }}">Edit</a>
                             <form action="{{ route('delete-project', $project->id) }}" method="POST">
