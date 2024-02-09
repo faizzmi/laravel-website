@@ -27,4 +27,15 @@ class User extends Model
         return $this->hasMany(Project::class);
     }
 
+    public function experience()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
+    public function award()
+    {
+        return $this->hasMany(Award::class);
+    }
+
+
 }

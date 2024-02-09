@@ -77,9 +77,9 @@ class AdminAuthController extends Controller
         $res = $user->save();
 
         if ($res) {
-            return redirect('dashboard')->with('successAbout', 'Education record updated successfully.');
+            return back()->with('successAbout', 'Education record updated successfully.');
         } else {
-            return redirect('dashboard')->with('errorAbout', 'Failed to update education record.');
+            return back()->with('errorAbout', 'Failed to update education record.');
         }
     }
 

@@ -14,28 +14,23 @@
         @method('PUT')
         <div class="form-group">
             <label for="from_date">From Date</label>
-            <input type="date" id="from_date" name="from_date" required value={{ $education->from_date }}>
-            <span>@error('name') {{ $message }} @enderror</span>
+            <input type="from_date" id="from_date" name="from_date" required value={{ $education->from_date }}>
         </div>
         <div class="form-group">
             <label for="to_date">To Date</label>
-            <input type="date" id="to_date" name="to_date" value={{ $education->to_date }}>
-            <span>@error('name') {{ $message }} @enderror</span>
+            <input type="to_date" id="to_date" name="to_date" value={{ $education->to_date }}>
         </div>
         <div class="form-group">
             <label for="education_name">Education Name</label>
-            <input type="text" id="education_name" name="education_name" required value={{ $education->education_name }}>
-            <span>@error('name') {{ $message }} @enderror</span>
+            <input type="education_name" id="education_name" name="education_name" required value={{ $education->education_name }}>
         </div>
         <div class="form-group">
             <label for="place">Place</label>
-            <input type="text" id="place" name="place" required value={{ $education->place }}>
-            <span>@error('name') {{ $message }} @enderror</span>
+            <input type="place" id="place" name="place" required value={{ $education->place }}>
         </div>
         <div class="form-group">
             <label for="description">Description</label>
             <textarea id="description" name="description">{{ $education->description }}</textarea>
-            <span>@error('name') {{ $message }} @enderror</span>
         </div>
             <button type="submit" >Submit</button>
             <a href="{{ route('dashboard') }}">cancel</a>

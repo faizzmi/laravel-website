@@ -13,15 +13,15 @@
         @csrf
         <div class="form-group">
             <label for="from_date">From Date</label>
-            <input type="date" id="from_date" name="from_date" required>
+            <input type="from_date" id="from_date" name="from_date" required>
         </div>
         <div class="form-group">
             <label for="to_date">To Date</label>
-            <input type="date" id="to_date" name="to_date">
+            <input type="to_date" id="to_date" name="to_date">
         </div>
         <div class="form-group">
             <label for="education_name">Education Name</label>
-            <input type="text" id="education_name" name="education_name" required>
+            <input type="education_name" id="education_name" name="education_name" required>
         </div>
         <div class="form-group">
             <label for="place">Place</label>

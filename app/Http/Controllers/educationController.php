@@ -18,8 +18,8 @@ class educationController extends Controller
     {
         $request->validate([
             'from_date' => 'required|date',
-            'education_name' => 'required|string',
-            'place' => 'required|string',
+            'education_name' => 'required',
+            'place' => 'required',
         ]);
         $userId = Session::get('loginId');
 
