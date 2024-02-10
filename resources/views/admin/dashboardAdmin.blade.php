@@ -47,7 +47,7 @@
             <a href="{{ route('project-dashboard') }}">See all projects</a>
         </div>
         <div>
-            <a href="">See all awards</a>
+            <a href="{{ route('award-dashboard') }}">See all awards</a>
         </div>
     </div>
         

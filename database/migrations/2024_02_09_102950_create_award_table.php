@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('awardName');
-            $table->text('description')->nullable();
+            $table->date('award_date');
+            $table->text('awardDesc')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('from_date_exp');
             $table->date('to_date_exp')->nullable();
             $table->string('expName');
+            $table->string('expPosition');
             $table->string('expPlace');
             $table->text('descriptionExp')->nullable();
             $table->timestamps();

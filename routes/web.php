@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\educationController;
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\awardController;
 
 
 /*
@@ -59,6 +60,17 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
         Route::delete('/delete/{project}', [projectController::class, 'destroyProject'])->name('delete-project');
     });
 
+    //Route for award
+    Route::prefix('/award')->group(function () {
+        Route::get('/', [awardController::class, 'awardDashboard'])->name('award-dashboard');
+        Route::get('/create', [awardController::class,'createAward'])->name('create-award');
+        Route::post('/store', [awardController::class, 'storeAward'])->name('store-award');
+        Route::get('/edit/{award}', [awardController::class, 'editAward'])->name('edit-award');
+        Route::put('/update/{award}', [awardController::class, 'updateAward'])->name('update-award');
+        Route::delete('/delete/{award}', [awardController::class, 'destroyAward'])->name('delete-award');
+    });
+
+    
     //Logout
     Route::get('/logout',[AdminAuthController::class,'logoutUser']);
 });

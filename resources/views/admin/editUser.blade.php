@@ -1,6 +1,8 @@
 <h1>Edit Profile</h1>
 
 <form method="POST" action="{{ route('update-user', $user->id) }}">
+    <h3>About</h3>
+
     @if(Session::has('successAbout'))
         <div>{{ Session::get('successAbout')}}</div>
     @endif
@@ -22,9 +24,9 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" value="{{ $user->email }}" >
     
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="New Password">
-        <button type="button" id="togglePassword">Show</button>
+        {{-- <label for="password">Password</label> --}}
+        <input type="hidden" id="password" name="password" placeholder="New Password">
+        {{-- <button type="button" id="togglePassword">Show</button> --}}
     </div>
 
     <div>
@@ -35,6 +37,10 @@
     <button type="submit">Save</button>
     <a href="{{ route('dashboard') }}">Cancel</a>
 </form>
+
+<div>
+    <h3>Contact</h3>
+</div>
 
 <script>
     const passwordInput = document.getElementById('password');
