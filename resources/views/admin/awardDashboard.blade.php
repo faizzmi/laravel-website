@@ -1,6 +1,10 @@
-<h3>{{ $user->name }}'s Awards and Certifications</h3>
+<h2>{{ $user->name }}'s Awards and Certifications</h2>
+<a href="{{ route('dashboard') }}">Back</a>
 
-<a href="{{ route('create-award') }}">Add Award</a>
+<hr>
+<div>
+    <a href="{{ route('create-award') }}">Add Award</a>
+</div>
 
 @if (isset($message))
     <p>{{ $message }}</p>
