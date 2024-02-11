@@ -32,8 +32,9 @@
             <tbody>
                 @foreach ($projects as $project)
                     <tr>
+                        
                         <td>{{ $project->developedYear }}</td>
-                        <td>{{ $project->projectName }}</td>
+                        <td><a href="{{ route('view-project', $project->id) }}">{{ $project->projectName }}</a></td>
                         <td>{{ $project->projectDesc }}</td>
                         <td>{{ $project->projectType }}</td>
                         <td></td>

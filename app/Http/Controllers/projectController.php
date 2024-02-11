@@ -24,6 +24,10 @@ class projectController extends Controller
         return view('admin.projectDashboard', compact('user', 'projects'));
     }
 
+    public function viewProject(Project $project){
+        return view('admin.viewProject', compact('project'));
+    }
+
     public function createProject() {
         return view('admin.createProject');
     }
