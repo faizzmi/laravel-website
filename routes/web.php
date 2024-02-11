@@ -56,7 +56,7 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     Route::prefix('/project')->group(function () {
         Route::get('/', [projectController::class, 'projectDashboard'])->name('project-dashboard');
         Route::get('/{project}', [projectController::class, 'viewProject'])->name('view-project');
-        Route::get('/create', [projectController::class,'createProject'])->name('create-project');
+        Route::get('/create', [projectController::class, 'createProject'])->name('create-project');
         Route::post('/store', [projectController::class, 'storeProject'])->name('store-project');
         Route::get('/edit/{project}', [projectController::class, 'editeProject'])->name('edit-project');
         Route::put('/update/{project}', [projectController::class, 'updateProject'])->name('update-project');

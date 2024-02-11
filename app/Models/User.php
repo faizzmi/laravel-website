@@ -11,7 +11,7 @@ class User extends Model
     use HasFactory,Notifiable;
 
     protected $fillable = [
-        'name', // Add 'name' to the fillable array
+        'name',
         'email',
         'password',
     ];

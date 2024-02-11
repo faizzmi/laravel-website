@@ -4,8 +4,10 @@
 </div>
 
 <hr>
+<div>
+    <a href="{{ route('create-project') }}">Add Project</a>
+</div>
 
-<a href="{{ route('create-project') }}">Add Project</a>
 
 @if (isset($message))
     <p>{{ $message }}</p>

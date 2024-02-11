@@ -9,6 +9,12 @@ class Skill extends Model
 {
     use HasFactory;
 
+    protected $table = 'skill';
+    protected $fillable = [
+        'skillName',
+        'skillType',
+    ];
+
     public function project(){
         return $this->belongsTo(Project::class);
     }
