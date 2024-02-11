@@ -21,6 +21,10 @@ class User extends Model
     {
         return $this->hasMany(Educations::class);
     }
+    public function contacts()
+    {
+        return $this->hasMany(Contacts::class);
+    }
 
     public function project()
     {

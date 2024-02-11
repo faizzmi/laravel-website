@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\educationController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\awardController;
-
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\expController;
 
 
@@ -80,6 +80,15 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
         Route::get('/edit/{experience}', [expController::class, 'editExp'])->name('edit-experience');
         Route::put('/update/{experience}', [expController::class, 'updateExp'])->name('update-experience');
         Route::delete('/delete/{experience}', [expController::class, 'destroyExp'])->name('delete-experience');
+    });
+
+    //Route for contact
+    Route::prefix('/contact')->group(function () {
+        Route::get('/create', [contactController::class,'createContact'])->name('create-contact');
+        Route::post('/store', [contactController::class, 'storeContact'])->name('store-contact');
+        Route::get('/edit/{contact}', [contactController::class, 'editContact'])->name('edit-contact');
+        Route::put('/update/{contact}', [contactController::class, 'updateContact'])->name('update-contact');
+        Route::delete('/delete/{contact}', [contactController::class, 'destroyContact'])->name('delete-contact');
     });
     
     //Logout

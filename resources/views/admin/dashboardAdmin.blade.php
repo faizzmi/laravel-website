@@ -156,6 +156,49 @@
 
     <div>
         <h3>Contacts</h3>
+        
+        <a href="{{ route("create-contact") }}">Add New Contact</a>
+        
+        @if (isset($messageC))
+            <p>{{ $messageC }}</p>
+        @else
+
+            @if(Session::has('successC'))
+                <div>{{ Session::get('successC')}}</div>
+            @endif
+            @if(Session::has('errorC'))
+                <div>{{ Session::get('errorC')}}</div>
+            @endif
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Link</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($contacts as $contact)
+                        <tr>
+                                <td>{{ $contact->name }}</td>
+                                <td>{{ $contact->link }}</td>
+                            <td>
+                                <a href="{{ route('edit-contact', $contact->id) }}">Edit</a>
+                                <form action="{{ route('delete-contact', $contact->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this experience record?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
     </div>
 </body>
