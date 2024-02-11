@@ -61,45 +61,97 @@
         @if(Session::has('errorEdu'))
             <div>{{ Session::get('errorEdu')}}</div>
         @endif
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>From Date</th>
-                    <th>To Date</th>
-                    <th>Name</th>
-                    <th>Place</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($educations as $education)
+        @if (isset($messageEdu))
+            <p>{{ $messageEdu }}</p>
+        @else
+            <table class="table">
+                <thead>
                     <tr>
-                            <td>{{ $education->from_date }}</td>
-                            <td>{{ $education->to_date }}</td>
-                            <td>{{ $education->education_name }}</td>
-                            <td>{{ $education->place }}</td>
-                            <td>{{ $education->description }}</td>
-                        <td>
-                            <a href="{{ route('edit-edu', $education->id) }}">Edit</a>
-                            <form action="{{ route('delete-edu', $education->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    onclick="return confirm('Are you sure you want to delete this education record?')">
-                                    Delete
-                                </button>
-                            </form>
-                        </td>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Name</th>
+                        <th>Place</th>
+                        <th>Description</th>
+                        <th>Actions</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($educations as $education)
+                        <tr>
+                                <td>{{ $education->from_date }}</td>
+                                <td>{{ $education->to_date }}</td>
+                                <td>{{ $education->education_name }}</td>
+                                <td>{{ $education->place }}</td>
+                                <td>{{ $education->description }}</td>
+                            <td>
+                                <a href="{{ route('edit-edu', $education->id) }}">Edit</a>
+                                <form action="{{ route('delete-edu', $education->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this education record?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
 
     <div>
         <h3>Experiences</h3>
+        
+        <a href="{{ route("create-experience") }}">Add New Experience</a>
+        
+        @if (isset($messageExp))
+            <p>{{ $messageExp }}</p>
+        @else
+        @if(Session::has('successExp'))
+            <div>{{ Session::get('successExp')}}</div>
+        @endif
+        @if(Session::has('errorExp'))
+            <div>{{ Session::get('errorExp')}}</div>
+        @endif
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>From Date</th>
+                        <th>To Date</th>
+                        <th>Name</th>
+                        <th>Place</th>
+                        <th>Position</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($experiences as $experience)
+                        <tr>
+                                <td>{{ $experience->from_date_exp }}</td>
+                                <td>{{ $experience->to_date_exp }}</td>
+                                <td>{{ $experience->expName }}</td>
+                                <td>{{ $experience->expPlace }}</td>
+                                <td>{{ $experience->expPosition }}</td>
+                                <td>{{ $experience->descriptionExp }}</td>
+                            <td>
+                                <a href="{{ route('edit-experience', $experience->id) }}">Edit</a>
+                                <form action="{{ route('delete-experience', $experience->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        onclick="return confirm('Are you sure you want to delete this experience record?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
     </div>
 
     <div>

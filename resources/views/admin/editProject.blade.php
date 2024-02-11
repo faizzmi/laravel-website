@@ -1,5 +1,5 @@
 <body>
-    <h1>Add New Project</h1>
+    <h1>Edit Project</h1>
 
     <form method="POST" action="{{ route('update-project', $project->id) }}">
         @if(Session::has('successAbout'))
@@ -34,7 +34,7 @@
         </div>
 
         <div>
-            <button type="submit" >Add New</button>
+            <button type="submit" >Save edit</button>
             <a href="{{ route('project-dashboard') }}">cancel</a>
         </div>
     </form>

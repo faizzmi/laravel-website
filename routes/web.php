@@ -7,6 +7,8 @@ use App\Http\Controllers\educationController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\awardController;
 
+use App\Http\Controllers\expController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +73,14 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
         Route::delete('/delete/{award}', [awardController::class, 'destroyAward'])->name('delete-award');
     });
 
+    //Route for experience
+    Route::prefix('/experience')->group(function () {
+        Route::get('/create', [expController::class,'createExp'])->name('create-experience');
+        Route::post('/store', [expController::class, 'storeExp'])->name('store-experience');
+        Route::get('/edit/{experience}', [expController::class, 'editExp'])->name('edit-experience');
+        Route::put('/update/{experience}', [expController::class, 'updateExp'])->name('update-experience');
+        Route::delete('/delete/{experience}', [expController::class, 'destroyExp'])->name('delete-experience');
+    });
     
     //Logout
     Route::get('/logout',[AdminAuthController::class,'logoutUser']);

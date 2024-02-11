@@ -1,4 +1,4 @@
-<h2>{{ $user->name }}'s Awards and Certifications</h2>
+<h1>{{ $user->name }}'s Awards and Certifications</h1>
 <a href="{{ route('dashboard') }}">Back</a>
 
 <hr>
