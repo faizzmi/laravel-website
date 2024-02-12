@@ -43,8 +43,8 @@
         <button type="button" onclick="addSkill()">Add Skill</button>
 
         <div>
-            <label for="projectDesc">Project Description</label>
-            <textarea id="projectDesc" name="projectDesc"></textarea>
+            <label for="projectDesc">Project Description</label><br>
+            <textarea id="projectDesc" name="projectDesc" style="width: 80vw; height: 30vh;resize: none;"></textarea>
         </div>
 
         <div>

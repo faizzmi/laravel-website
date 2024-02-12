@@ -29,8 +29,8 @@
             <input type="place" id="place" name="place" required value={{ $education->place }}>
         </div>
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description">{{ $education->description }}</textarea>
+            <label for="description">Description</label><br>
+            <textarea id="description" name="description" style="width: 80vw; height: 30vh;resize: none;">{{ $education->description }}</textarea>
         </div>
             <button type="submit" >Submit</button>
             <a href="{{ route('dashboard') }}">cancel</a>

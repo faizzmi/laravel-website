@@ -27,8 +27,8 @@
     </div>
     
     <div>
-        <label for="descriptionExp">Experience Description</label>
-        <textarea id="descriptionExp" name="descriptionExp">{{ $experience->descriptionExp }}</textarea>
+        <label for="descriptionExp">Experience Description</label><br>
+        <textarea id="descriptionExp" name="descriptionExp" style="width: 80vw; height: 30vh;resize: none;">{{ $experience->descriptionExp }}</textarea>
     </div>
     
     <div>

@@ -30,8 +30,8 @@
     </div>
 
     <div>
-        <label for="about">About</label>
-        <textarea id="about" name="about" >{{ $user->about }}</textarea>
+        <label for="about">About</label><br>
+        <textarea id="about" name="about" style="width: 80vw; height: 30vh;resize: none;">{{ $user->about }}</textarea>
     </div>
     
     <button type="submit">Save</button>

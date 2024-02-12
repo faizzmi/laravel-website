@@ -15,8 +15,8 @@
         <input type="text" id="awardName" name="awardName" value="{{ $award->awardName }}" required>
     </div>
     <div>
-        <label for="awardDesc">Award Description</label>
-        <textarea id="awardDesc" name="awardDesc">{{ $award->awardDesc }}</textarea>
+        <label for="awardDesc">Award Description</label><br>
+        <textarea id="awardDesc" name="awardDesc" style="width: 80vw; height: 30vh;resize: none;">{{ $award->awardDesc }}</textarea>
     </div>
     <div>
         <button type="submit" >Save edit</button>

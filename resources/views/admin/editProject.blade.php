@@ -72,8 +72,8 @@
                 @endforeach
             </div>
             <div>
-                <label for="projectDesc">Project Description</label>
-                <textarea id="projectDesc" name="projectDesc">{{ $project->projectDesc }}</textarea>
+                <label for="projectDesc">Project Description</label><br>
+                <textarea id="projectDesc" name="projectDesc" style="width: 80vw; height: 30vh;resize: none;">{{ $project->projectDesc }}</textarea>
             </div>
 
             <div>

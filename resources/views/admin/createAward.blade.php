@@ -11,8 +11,8 @@
         <input type="text" id="awardName" name="awardName" required>
     </div>
     <div>
-        <label for="awardDesc">Award Description</label>
-        <textarea id="awardDesc" name="awardDesc"></textarea>
+        <label for="awardDesc">Award Description</label><br>
+        <textarea id="awardDesc" name="awardDesc" style="width: 80vw; height: 30vh;resize: none;"></textarea>
     </div>
     <div>
         <button type="submit" >Add New</button>

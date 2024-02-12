@@ -28,8 +28,8 @@
             <input type="text" id="place" name="place" required>
         </div>
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea id="description" name="description"></textarea>
+            <label for="description">Description</label><br>
+            <textarea id="description" name="description" style="width: 80vw; height: 30vh;resize: none;"></textarea>
         </div>
         <button type="submit" >Submit</button>
         <a href="{{ route('dashboard') }}">cancel</a>
