@@ -1,8 +1,17 @@
+
+<h1>{{ $project->projectName }}</h1>
 <a href="{{ route('project-dashboard') }}">Back</a>
-
-<h2>{{ $project->projectName }}</h2>
-
+<hr>
 <div>
+    @php
+        $skillNames = [];
+        foreach ($projectSkills[$project->id] as $skill) {
+            $skillNames[] = $skill->skillName;
+        }
+        $skillNamesString = implode(', ', $skillNames);
+    @endphp
+    {{ $skillNamesString }}
+    <br>
     {{ $project->developedYear }}
     {{ $project->projectType }}
 </div>

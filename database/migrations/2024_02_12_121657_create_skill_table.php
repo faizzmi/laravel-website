@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('skill', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('project_id');
-            $table->string('skillName');
-            $table->string('skillType');
+            $table->string('skillName')->nullable();
+            $table->string('skillType')->nullable();
             $table->timestamps();
 
             $table->foreign('project_id')

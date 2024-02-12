@@ -34,12 +34,17 @@
             <tbody>
                 @foreach ($projects as $project)
                     <tr>
-                        
                         <td>{{ $project->developedYear }}</td>
                         <td><a href="{{ route('view-project', $project->id) }}">{{ $project->projectName }}</a></td>
                         <td>{{ $project->projectDesc }}</td>
                         <td>{{ $project->projectType }}</td>
-                        <td></td>
+                        <td>
+                            <ul>
+                                @foreach ($projectSkills[$project->id] as $skill)
+                                    <li>{{ $skill->skillName }}</li>
+                                @endforeach
+                            </ul>
+                        </td>
                         <td><a href="{{ $project->linkProject }}" target="_blank">{{ $project->linkProject }}</a></td>
                         <td>
                             <a href="{{ route('edit-project', $project->id) }}">Edit</a>

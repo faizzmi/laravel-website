@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\projectController;
+use App\Http\Controllers\skillController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\educationController;
@@ -56,11 +57,12 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     Route::prefix('/project')->group(function () {
         Route::get('/', [projectController::class, 'projectDashboard'])->name('project-dashboard');
         Route::get('/{project}', [projectController::class, 'viewProject'])->name('view-project');
-        Route::get('p/create', [projectController::class, 'createProject'])->name('create-project');
+        Route::get('c/create', [projectController::class, 'createProject'])->name('create-project');
         Route::post('/store', [projectController::class, 'storeProject'])->name('store-project');
         Route::get('/edit/{project}', [projectController::class, 'editeProject'])->name('edit-project');
         Route::put('/update/{project}', [projectController::class, 'updateProject'])->name('update-project');
         Route::delete('/delete/{project}', [projectController::class, 'destroyProject'])->name('delete-project');
+        Route::delete('/skills/{id}', [skillController::class, 'destroy'])->name('skills-destroy');
     });
 
     //Route for award
