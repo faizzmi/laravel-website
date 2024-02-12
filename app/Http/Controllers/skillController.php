@@ -14,11 +14,11 @@ public function destroy($id) {
     try {
         $skill = Skill::findOrFail($id);
         $skill->delete();
-        return redirect()->back()->with('successSkill', 'Skill deleted successfully');
+        return redirect('dashboard/project')->with('successSkill', 'Skill deleted successfully');
     } catch (ModelNotFoundException $e) {
-        return redirect()->back()->with('errorSkill', 'Skill not found');
+        return redirect('dashboard/project')->with('errorSkill', 'Skill not found');
     } catch (\Exception $e) {
-        return redirect()->back()->with('errorSkill', 'An error occurred while deleting the skill');
+        return redirect('dashboard/project')->with('errorSkill', 'An error occurred while deleting the skill');
     }
 }
 

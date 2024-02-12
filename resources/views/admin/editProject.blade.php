@@ -1,14 +1,20 @@
-<script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Project</title>
+</head>
 <body>
     <h1>Edit Project</h1>
+    @if(Session::has('successAbout'))
+        <div>{{ Session::get('successPro')}}</div>
+    @endif
+    @if(Session::has('errorAbout'))
+        <div>{{ Session::get('errorPro')}}</div>
+    @endif
     <div>
         <form method="POST" action="{{ route('update-project', $project->id) }}">
-            @if(Session::has('successAbout'))
-                <div>{{ Session::get('successPro')}}</div>
-            @endif
-            @if(Session::has('errorAbout'))
-                <div>{{ Session::get('errorPro')}}</div>
-            @endif
             @method('PUT')
             @csrf
 
@@ -90,6 +96,7 @@
 
     <script>
         function addSkill() {
+            console.log("Adding skill...");
             var skillsDiv = document.getElementById("skills");
             var newSkillDiv = document.createElement("div");
             newSkillDiv.innerHTML = `
@@ -111,9 +118,8 @@
         }
         
         function removeSkill(button) {
+            console.log("Removing skill...");
             button.parentElement.remove();
         }
-
-        
     </script>
 </body>

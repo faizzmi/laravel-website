@@ -73,11 +73,10 @@ class projectController extends Controller
         $res = $project->save();
         
         if($res){
-            $projectId = $project->id;
 
             foreach($request->skillName as $key=>$skillName){
                 $skill = new Skill();
-                $skill->project_id = $projectId;
+                $skill->project_id = $project->id;
                 $skill->skillName = $skillName;
                 $skill->skillType = $request->skillType[$key];
                 $skill->save();
@@ -100,40 +99,32 @@ class projectController extends Controller
             'projectName' => 'required',
             'projectType' => 'required',
         ]);
-
+    
         $project = Project::findOrFail($id);
-
-        $project->developedYear = $request->developedYear;
-        $project->projectName = $request->projectName;
-        $project->projectType = $request->projectType;
-        $project->projectDesc = $request->projectDesc;
-        $project->linkProject = $request->linkProject;
-        $res = $project->save();
-
-        if($res){
-            $projectID = $project->id;
-
-            foreach ($request->skillName as $key => $skillName) {
-                // Check if skill already exists for this project with the same name and type
-                $existingSkill = Skill::where('project_id', $projectID)
-                                    ->where('skillName', $skillName)
-                                    ->where('skillType', $request->skillType[$key])
-                                    ->first();
-
-                if (!$existingSkill) {
-                    // If skill doesn't exist, create a new one
-                    $skill = new Skill();
-                    $skill->project_id = $projectID;
-                    $skill->skillName = $skillName;
-                    $skill->skillType = $request->skillType[$key];
-                    $skill->save();
-                }
+    
+        $project->update([
+            'developedYear' => $request->developedYear,
+            'projectName' => $request->projectName,
+            'projectType' => $request->projectType,
+            'projectDesc' => $request->projectDesc,
+            'linkProject' => $request->linkProject,
+        ]);
+    
+        foreach ($request->skillName as $key => $skillName) {
+            
+            if ($skillName != $project->skillName) {
+                $skill = new Skill();
+                $skill->project_id = $project->id;
+                $skill->skillName = $skillName;
+                $skill->skillType = $request->skillType[$key];
+                $skill->save();
             }
-            return redirect('dashboard/project')->with('successPro','Your project updated succesfully');
-        }else{
-            return redirect('dashboard/project')->with('errorPro','Something wrong');
+            
         }
+    
+        return redirect('dashboard/project')->with('successPro', 'Your project updated successfully');
     }
+    
 
     public function destroyProject(Project $project)
     {
