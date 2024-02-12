@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Session;
+use DB;
 use App\Models\Project;
+use App\Models\Skill;
 
 class projectController extends Controller
 {
@@ -29,7 +31,7 @@ class projectController extends Controller
     }
 
     public function createProject() {
-        return view('admin.createProject');
+        return view('admin.createPro');
     }
 
     public function storeProject(Request $request) {
@@ -50,6 +52,16 @@ class projectController extends Controller
         $project->linkProject = $request->linkProject;
         $res = $project->save();
 
+        $skills = DB::table('project')->select('skill')->first();
+        $skills = $skills->skill;
+
+        foreach($skills as $key => $skill)
+        {
+            $skill['skillName'] = $request->skillName[$key];
+            $skill['skillType'] = $request->skillType[$key];
+            Skill::create($skill);
+        }
+        
         if($res){
             return redirect('dashboard/project')->with('successPro','Your project edded succesfully');
         }else{
@@ -76,6 +88,17 @@ class projectController extends Controller
         $project->projectDesc = $request->projectDesc;
         $project->linkProject = $request->linkProject;
         $res = $project->save();
+
+        $skills = DB::table('project')->select('skill')->first();
+        $skills = $skills->skill;
+
+        foreach($skills as $key => $skill)
+        {
+            $skill['project_id'] = $id;
+            $skill['skillName'] = $request->skillName[$key];
+            $skill['skillType'] = $request->skillType[$key];
+            Skill::create($skill);
+        }
 
         if($res){
             return redirect('dashboard/project')->with('successPro','Your project updated succesfully');
