@@ -7,13 +7,12 @@ module.exports = {
     "./resources/css/*.css",
   ],
   fontFamily:{
-
-  },
-  backgrounmdImage:{
     primary: 'DM Serif Display',
   },
-  theme: {
     extend: {
+      backgroundImage:{
+        photo: "{{asset('assets/images/w5.jpg')}}",
+      },
       colors: {
         transparent: 'transparent',
         white: '#fff',
@@ -24,11 +23,6 @@ module.exports = {
         darkBrown:'#12100E',
       }
     },
-  },
   plugins: [],
-}
-module.exports = {
-  darkMode: 'class',
-  // ...
-}
+};
 
