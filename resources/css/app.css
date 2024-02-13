@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply text-[22px];
+    }
+    
+a {
+    @apply text-[20px] hover:text-accent transition-all duration-300;
+}
+    
+.h1{
+    @apply text-[64px] lg:text-[84px] leading-none;
+}
