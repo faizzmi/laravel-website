@@ -3,6 +3,7 @@
 use App\Http\Controllers\projectController;
 use App\Http\Controllers\skillController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\visitorController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\educationController;
 use App\Http\Controllers\adminDashboardController;
@@ -22,16 +23,17 @@ use App\Http\Controllers\expController;
 |
 */
 
-Route::get('/', function () {
-    return view('visitor/home');
-});
-Route::get('/resume', function () {
-    return view('visitor/pdfView');
-});
-Route::get('/restricted', function(){
-    return view('auth/landing-page');
-});
-//->middleware('alreadyLoggedIn');middleware('isLoggedIn')->
+Route::get('/', function () {return view('visitor/home');});
+Route::get('/resume', function () {return view('visitor/pdfView');});
+Route::get('/projects',[visitorController::class,'listProjects']);
+Route::get('/projects/{project}', [visitorController::class,'viewProjects'])->name('view-detail');
+Route::get('/awards',[visitorController::class,'listAwards']);
+
+
+Route::get('/restricted', function(){return view('auth/landing-page');});
+
+
+//
 Route::get('/login',[AdminAuthController::class,'login'])->middleware('alreadyLoggedIn');
 Route::get('/registration',[AdminAuthController::class,'registration'])->middleware('alreadyLoggedIn');
 Route::post('/register-user',[AdminAuthController::class,'registerUser'])->name('register-user');

@@ -10,10 +10,10 @@
                     <a class="uppercase hover:text-gray-500" href="/">About</a>
                 </li>
                 <li>
-                    <a class="uppercase hover:text-gray-500" href="#">Projects</a>
+                    <a class="uppercase hover:text-gray-500" href="/projects"s>Projects</a>
                 </li>
                 <li>
-                    <a class="uppercase hover:text-gray-500" href="#">Awards</a>
+                    <a class="uppercase hover:text-gray-500" href="/awards">Awards</a>
                 </li>
                 <li>
                     <a class="uppercase hover:text-gray-500" href="#">Contact</a>
@@ -25,6 +25,11 @@
         </div>
     </nav>
 </header>
+<div class="bg-stone-200 text-center">
+    <ion-icon name="alert-circle"></ion-icon>
+    Seeking for Summer Internship: 04/03/2024-16/08/2024
+    <ion-icon name="alert-circle"></ion-icon>
+</div>
 
 
 <script>
