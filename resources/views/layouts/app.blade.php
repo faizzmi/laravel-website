@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body class="bg-[#CAC6C0] " >
-    @include('partials.visitor_navbar')
+    @include('partials.visitor_navbar', ['class' => 'sticky top-0 z-50'])
 
     @yield('content')
 

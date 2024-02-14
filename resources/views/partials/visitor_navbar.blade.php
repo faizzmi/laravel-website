@@ -7,7 +7,7 @@
         <div class="nav-links absolute bg-white md:static md:min-h-fit md:z-100 md:w-auto min-h-[40vh] left-0 top-[-100%]  w-full flex items-center px-5">
             <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
                 <li>
-                    <a class="uppercase hover:text-gray-500" href="#">About</a>
+                    <a class="uppercase hover:text-gray-500" href="/">About</a>
                 </li>
                 <li>
                     <a class="uppercase hover:text-gray-500" href="#">Projects</a>
@@ -21,10 +21,11 @@
             </ul>
         </div>
         <div>
-            <button class="bg-[#5E452A] text-white px-5 py-2 rounded-full hover:bg-[#CAC6C0]">Resume</button>
+            <a href="/resume" class="bg-[#5E452A] text-white px-5 py-2 rounded-full hover:bg-[#CAC6C0]">Resume</a>
         </div>
     </nav>
 </header>
+
 
 <script>
     const navLinks = document.querySelector('.nav-links');

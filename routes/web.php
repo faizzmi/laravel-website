@@ -25,7 +25,9 @@ use App\Http\Controllers\expController;
 Route::get('/', function () {
     return view('visitor/home');
 });
-
+Route::get('/resume', function () {
+    return view('visitor/pdfView');
+});
 Route::get('/restricted', function(){
     return view('auth/landing-page');
 });
