@@ -23,9 +23,9 @@ use App\Http\Controllers\expController;
 |
 */
 
-Route::get('/', function () {return view('visitor/home');});
+Route::get('/',[visitorController::class,'visitorDashboard']);
 Route::get('/resume', function () {return view('visitor/pdfView');});
-Route::get('/projects',[visitorController::class,'listProjects']);
+Route::get('/projects',[visitorController::class,'listProjects'])->name('projects');
 Route::get('/projects/{project}', [visitorController::class,'viewProjects'])->name('view-detail');
 Route::get('/awards',[visitorController::class,'listAwards']);
 

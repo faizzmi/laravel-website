@@ -35,7 +35,6 @@
                 <option value="Programming Languages">Programming Languages</option>
                 <option value="Technologies">Technologies</option>
                 <option value="Framework">Framework</option>
-                <option value="Languages">Languages</option>
                 <option value="Database">Database</option>
                 <option value="Design">Design</option>
             </select>
@@ -71,7 +70,6 @@
                 <option value="Programming Languages">Programming Languages</option>
                 <option value="Technologies">Technologies</option>
                 <option value="Framework">Framework</option>
-                <option value="Languages">Languages</option>
                 <option value="Database">Database</option>
                 <option value="Design">Design</option>
                 </select>

@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,18 +7,7 @@
     <section>
         <div class="containermb-24 mx-auto xl:px-0">
             <div class="text-center mb-4">
-                <h2 class="mb-4 md:mb-8 text-4xl font-bold leading-tight">Projects</h2>
-                <p class="max-w-3xl mx-auto"></p>
-            </div>
-
-            @extends('layouts.app')
-
-@section('content')
-<main class="max-w-[1920px] mx-auto bg-stone-50 overflow-hidden">
-    <section>
-        <div class="containermb-24 mx-auto xl:px-0">
-            <div class="text-center mb-4">
-                <h2 class="mb-4 md:mb-8 text-4xl font-bold leading-tight">Projects</h2>
+                <h2 class="mb-4 md:mb-8 text-4xl font-bold leading-tight">Awards</h2>
                 <p class="max-w-3xl mx-auto"></p>
             </div>
 

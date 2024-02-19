@@ -5,7 +5,7 @@
     <section>
         
     <h1>{{ $project->projectName }}</h1>
-    <a href="{{ route('project-dashboard') }}">Back</a>
+    <a href="{{ route('projects') }}">Back</a>
     <hr>
     <div>
         @php
