@@ -20,7 +20,7 @@
                             {{-- <img class="rounded-t-lg" src="{{asset('assets/images/test.webp')}}" alt="Sunset in the mountains"> --}}
                             
                             <div class="size-60 px-6 pt-4">
-                                {{-- <ion-icon name="folder"></ion-icon> --}}
+                                <ion-icon name="folder"></ion-icon>
                                 <div class="font-bold text-xl mb-2">{{ $project->projectName }}</div>
                                 <p class="text-gray-700 text-base">{{ $project->projectType }}</p>
                                 {{-- <div class="pt-2">
