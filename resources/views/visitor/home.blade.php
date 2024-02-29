@@ -7,7 +7,7 @@
         <div class="container mx-auto h-full flex items-center justify-center xl:justify-start">
             <div class=" w-[567px] flex flex-col p-12 items-center text-center xl:text-left lg:items-start">
                 <h1 class="text-[#12100E] font-primary text-[64px] lg:text-[84px] leading-none">Faiz Azmi</h1>
-                <h1 class="mb-8 text-justify text-[#12100E]">
+                <h1 class="mt-4 mb-8 text-justify text-[#12100E]">
                     Welcome to my portfolio! As a <strong>Junior Software Engineer</strong> , I showcase my coding, design, and collaboration skills.
                     Explore projects, view my resume, and let's connect for exciting opportunities!
                 </h1>
@@ -59,7 +59,7 @@
             <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-[4px]">
                 <div class="order-2 xl:order-2 max-w-xl xl:max-w-[410px] flex flex-col items-center xl:items-start gap-4 p-8">
                     <p class="text-center lg:text-left lg:text-justify mb-4">
-                        As a software engineering student, I demonstrate my skills by showcasing projects that highlight my proficiency in coding,
+                        As a software engineer, I demonstrate my skills by showcasing projects that highlight my proficiency in coding,
                         problem-solving, and collaboration. You can explore all of my projects and awards, with a visual representation through a graph,
                         to see my progression and achievements across various technical areas
                     </p>

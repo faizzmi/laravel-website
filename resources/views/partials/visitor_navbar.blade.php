@@ -25,11 +25,11 @@
         </div>
     </nav>
 </header>
-<div class="bg-stone-200 text-center">
+{{-- <div class="bg-stone-200 text-center">
     <ion-icon name="alert-circle"></ion-icon>
     Seeking for Summer Internship: 04/03/2024-16/08/2024
     <ion-icon name="alert-circle"></ion-icon>
-</div>
+</div> --}}
 
 
 <script>
