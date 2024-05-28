@@ -34,7 +34,8 @@
 
         <div>
             <label for="about">About</label>
-            <textarea id="about" name="about" readonly>{{ $data->about }}</textarea>
+            {{-- <textarea id="about" name="about" maxlength="1000"  readonly>{{ $data->about }}</textarea> --}}
+            <textarea id="about" name="about" style="width: 80vw; height: 30vh;resize: none;" readonly>{{ $data->about }}</textarea>
         </div>
         
         <a href="{{ route('edit-user', $data->id) }}">Edit</a>

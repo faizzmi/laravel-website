@@ -61,7 +61,7 @@ class AdminAuthController extends Controller
         $request->validate([
             'name' => 'required|string',
             'jobTitle' => 'nullable|string',
-            'about' => 'nullable|string',
+            'about' => 'nullable',
         ]);
         $userId = Session::get('loginId');
         $user = User::where('id', $userId)->first();
