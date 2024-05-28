@@ -7,18 +7,18 @@
 </head>
 <body>
     <h1>Edit Project</h1>
-    @if(Session::has('successAbout'))
-        <div>{{ Session::get('successPro')}}</div>
+    @if(Session::has('successPro'))
+        <div>{{ Session::get('successPro') }}</div>
     @endif
-    @if(Session::has('errorAbout'))
-        <div>{{ Session::get('errorPro')}}</div>
+    @if(Session::has('errorPro'))
+        <div>{{ Session::get('errorPro') }}</div>
     @endif
     <div>
         <form method="POST" action="{{ route('update-project', $project->id) }}">
             @method('PUT')
             @csrf
 
-            </div>
+            <div>
                 <label for="developedYear">Year</label>
                 <input type="text" id="developedYear" name="developedYear" value="{{ $project->developedYear }}" required>
             </div>
@@ -37,22 +37,21 @@
                     <option value="Quality Assurance" {{ $project->projectType == 'Quality Assurance' ? 'selected' : '' }}>Quality Assurance</option>
                     <option value="Testing" {{ $project->projectType == 'Testing' ? 'selected' : '' }}>Testing</option>
                     <option value="Maintenance" {{ $project->projectType == 'Maintenance' ? 'selected' : '' }}>Maintenance</option>
-                    <!-- Add more options as needed -->
                 </select>
             </div>
 
             <div id="skills">
                 <label for="skillName">Skill </label>
                 @if(Session::has('successSkill'))
-                    <div>{{ Session::get('successSkill')}}</div>
+                    <div>{{ Session::get('successSkill') }}</div>
                 @endif
                 @if(Session::has('errorSkill'))
-                    <div>{{ Session::get('errorSkill')}}</div>
+                    <div>{{ Session::get('errorSkill') }}</div>
                 @endif
                 <button type="button" onclick="addSkill()">Add Skill</button>
                 
                 @foreach ($skills as $index => $skill)
-                <div>
+                <div class="skill">
                     <label for="skillName">Skill Name</label>
                     <input type="text" id="skillName" name="skillName[]" value="{{ $skill->skillName }}" required>
                     <label for="skillType">Skill Type</label>
@@ -64,16 +63,9 @@
                         <option value="Languages" {{ $skill->skillType == 'Languages' ? 'selected' : '' }}>Languages</option>
                         <option value="Database" {{ $skill->skillType == 'Database' ? 'selected' : '' }}>Database</option>
                         <option value="Design" {{ $skill->skillType == 'Design' ? 'selected' : '' }}>Design</option>
+                        <option value="Source Control" {{ $skill->skillType == 'Source Control' ? 'selected' : '' }}>Source Control</option>
                     </select>
-                    
-                    @if (count($skills) > 1)
-                        <form action="{{ route('skills-destroy', $skill->id) }}" method="POST" style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit">Remove</button>
-                        </form>
-                    @endif
-                    
+                    <button type="button" onclick="removeSkill(this)">Remove</button>
                 </div>
                 @endforeach
             </div>
@@ -88,8 +80,8 @@
             </div>
 
             <div>
-                <button type="submit" >Save edit</button>
-                <a href="{{ route('project-dashboard') }}">cancel</a>
+                <button type="submit">Save edit</button>
+                <a href="{{ route('project-dashboard') }}">Cancel</a>
             </div>
         </form>
     </div>
@@ -99,18 +91,20 @@
             console.log("Adding skill...");
             var skillsDiv = document.getElementById("skills");
             var newSkillDiv = document.createElement("div");
+            newSkillDiv.classList.add("skill");
             newSkillDiv.innerHTML = `
                 <label for="skillName">Skill Name</label>
                 <input type="text" name="skillName[]" required>
                 <label for="skillType">Skill Type</label>
                 <select name="skillType[]" required>
-                <option value="">Select Skill Type</option>
-                <option value="Programming Languages">Programming Languages</option>
-                <option value="Technologies">Technologies</option>
-                <option value="Framework">Framework</option>
-                <option value="Languages">Languages</option>
-                <option value="Database">Database</option>
-                <option value="Design">Design</option>
+                    <option value="">Select Skill Type</option>
+                    <option value="Programming Languages">Programming Languages</option>
+                    <option value="Technologies">Technologies</option>
+                    <option value="Framework">Framework</option>
+                    <option value="Languages">Languages</option>
+                    <option value="Database">Database</option>
+                    <option value="Design">Design</option>
+                    <option value="Source Control">Source Control</option>
                 </select>
                 <button type="button" onclick="removeSkill(this)">Remove</button>
             `;
@@ -123,3 +117,4 @@
         }
     </script>
 </body>
+</html>

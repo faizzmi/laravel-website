@@ -37,6 +37,7 @@
                 <option value="Framework">Framework</option>
                 <option value="Database">Database</option>
                 <option value="Design">Design</option>
+                <option value="Source Control">Source Control</option>
             </select>
         </div>
         <button type="button" onclick="addSkill()">Add Skill</button>
@@ -72,6 +73,7 @@
                 <option value="Framework">Framework</option>
                 <option value="Database">Database</option>
                 <option value="Design">Design</option>
+                <option value="Source Control">Source Control</option>
                 </select>
                 <button type="button" onclick="removeSkill(this)">Remove</button>
             `;

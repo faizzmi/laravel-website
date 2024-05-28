@@ -55,6 +55,21 @@
 
     <section class="mt-[80px] xl:mt-[200px] relative z-20">
         <div class="container mx-auto xl:px-0">
+            <h2 class="mb-8 md:mb-8 text-4xl font-bold text-center">My Experience</h2>
+            <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-[4px]">
+                <div class="max-w-xl xl:max-w-[800px] m-auto flex flex-col items-center xl:items-start gap-4 p-8">
+                    <p class="text-center lg:text-left lg:text-justify mb-4">
+                        Test
+                    </p>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-[80px] xl:mt-[200px] relative z-20">
+        <div class="container mx-auto xl:px-0">
             <h2 class="mb-8 md:mb-8 text-4xl font-bold text-center">My Skill</h2>
             <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-[4px]">
                 <div class="order-2 xl:order-2 max-w-xl xl:max-w-[410px] flex flex-col items-center xl:items-start gap-4 p-8">

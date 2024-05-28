@@ -110,21 +110,19 @@ class projectController extends Controller
             'linkProject' => $request->linkProject,
         ]);
     
+        // Remove existing skills and add updated ones
+        $project->skills()->delete();
+    
         foreach ($request->skillName as $key => $skillName) {
-            
-            if ($skillName != $project->skillName) {
-                $skill = new Skill();
-                $skill->project_id = $project->id;
-                $skill->skillName = $skillName;
-                $skill->skillType = $request->skillType[$key];
-                $skill->save();
-            }
-            
+            $skill = new Skill();
+            $skill->project_id = $project->id;
+            $skill->skillName = $skillName;
+            $skill->skillType = $request->skillType[$key];
+            $skill->save();
         }
     
         return redirect('dashboard/project')->with('successPro', 'Your project updated successfully');
     }
-    
 
     public function destroyProject(Project $project)
     {
