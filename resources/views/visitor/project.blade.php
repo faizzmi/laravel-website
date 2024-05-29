@@ -7,8 +7,7 @@
             <div class="text-center mt-4">
                 <h2 class="text-4xl font-bold leading-tight">Projects</h2>
                 <p class="max-w-3xl mx-auto">
-                    The Project Page is a part of a web application that showcases various projects and their details.
-                    It serves as a platform for users to explore different projects, learn about their features, and view associated skills.
+                    Explore different projects, learn about features, and view associated skills.
                 </p>
             </div>
 

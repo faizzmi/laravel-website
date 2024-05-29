@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pictures;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Skill;
@@ -59,6 +60,7 @@ class projectController extends Controller
             'developedYear' => 'required',
             'projectName' => 'required',
             'projectType' => 'required',
+            'file' => 'mimes:jpg,png,pdf|max:2048'
         ]);
 
         $userId = Session::get('loginId');
@@ -81,6 +83,12 @@ class projectController extends Controller
                 $skill->skillType = $request->skillType[$key];
                 $skill->save();
             }
+
+            // $pic = new Pictures();
+            // $pic->project_id = $project->id;
+            // $pic->picture = $request->file;
+            // $pic->save();
+
             return redirect('dashboard/project')->with('successPro','Your project edded succesfully');
         }else{
             return redirect('dashboard/project')->with('errorPro','Something wrong');

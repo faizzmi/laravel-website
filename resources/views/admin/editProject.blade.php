@@ -58,6 +58,7 @@
                     <select id="skillType" name="skillType[]" required>
                         <option value="">Select Skill Type</option>
                         <option value="Programming Languages" {{ $skill->skillType == 'Programming Languages' ? 'selected' : '' }}>Programming Languages</option>
+                        <option value="Declarative Languages" {{ $skill->skillType == 'Declarative Languages' ? 'selected' : '' }}>Declarative Languages</option>
                         <option value="Technologies" {{ $skill->skillType == 'Technologies' ? 'selected' : '' }}>Technologies</option>
                         <option value="Framework" {{ $skill->skillType == 'Framework' ? 'selected' : '' }}>Framework</option>
                         <option value="Languages" {{ $skill->skillType == 'Languages' ? 'selected' : '' }}>Languages</option>
@@ -99,6 +100,7 @@
                 <select name="skillType[]" required>
                     <option value="">Select Skill Type</option>
                     <option value="Programming Languages">Programming Languages</option>
+                    <option value="Declarative Languages">Declarative Languages</option>
                     <option value="Technologies">Technologies</option>
                     <option value="Framework">Framework</option>
                     <option value="Languages">Languages</option>

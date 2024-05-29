@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Award;
+use App\Models\Contacts;
 use App\Models\Experience;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,10 +38,16 @@ class visitorController extends Controller
                 skillCount
             FROM RankedSkills
             WHERE Rank = 1
+            ORDER BY skillCount DESC
         ");
 
 
-        return view('visitor.home', compact('skills','exp','user','rankedSkills', 'pieData'));
+        return view('visitor.home', compact('skills','exp','user','rankedSkills','pieData'));
+    }
+
+    public function contactUser(){
+        $contact = Contacts::where('id', 1)->get();
+        return view('partials.visitor_footer', compact('contact'));
     }
 
     public function listProjects()
@@ -64,7 +71,7 @@ class visitorController extends Controller
         $projectSkills = [];
 
         foreach ($projects as $proj) {
-            $skills = Skill::where('project_id', $proj->id)->get();
+            $skills = Skill::where('project_id', $proj->id)->orderBy('skillName', 'asc')->get();
             $projectSkills[$proj->id] = $skills;
         }
 

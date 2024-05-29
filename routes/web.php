@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\picController;
 use App\Http\Controllers\projectController;
 use App\Http\Controllers\skillController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,7 @@ Route::get('/resume', function () {return view('visitor/pdfView');});
 Route::get('/projects',[visitorController::class,'listProjects'])->name('projects');
 Route::get('/projects/{project}', [visitorController::class,'viewProjects'])->name('view-detail');
 Route::get('/awards',[visitorController::class,'listAwards']);
+// Route::get('/',[visitorController::class,'contactUser']);
 
 
 Route::get('/restricted', function(){return view('auth/landing-page');});
@@ -67,6 +69,7 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
         Route::put('/update/{project}', [projectController::class, 'updateProject'])->name('update-project');
         Route::delete('/delete/{project}', [projectController::class, 'destroyProject'])->name('delete-project');
         Route::delete('/skills/{id}', [skillController::class, 'destroy'])->name('skills-destroy');
+        Route::post('c/create/upload', [picController::class, 'upload'])->name('upload');
     });
 
     //Route for award
@@ -99,4 +102,4 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     
     //Logout
     Route::get('/logout',[AdminAuthController::class,'logoutUser']);
-});
+}); 

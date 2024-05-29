@@ -1,6 +1,12 @@
 <body>
     <h1>Add New Project</h1>
 
+    @if(Session::has('successPro'))
+        <div>{{ Session::get('successPro')}}</div>
+        @endif
+        @if(Session::has('errorPro'))
+            <div>{{ Session::get('errorPro')}}</div>
+        @endif
     <form method="POST" action="{{ route('store-project') }}">
         @csrf
         </div>
@@ -33,6 +39,7 @@
             <select id="skillType" name="skillType[]" required>
                 <option value="">Select Skill Type</option>
                 <option value="Programming Languages">Programming Languages</option>
+                <option value="Declarative Languages">Declarative Languages</option>
                 <option value="Technologies">Technologies</option>
                 <option value="Framework">Framework</option>
                 <option value="Database">Database</option>
@@ -52,6 +59,14 @@
             <input type="text" id="linkProject" name="linkProject">
         </div>
 
+        {{-- <div>
+            <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input type="file" name="file" accept="image/jpeg, image/png, image/gif">
+                <button type="submit">Upload</button>
+                
+            </form>
+        </div> --}}
         <div>
             <button type="submit" >Add New</button>
             <a href="{{ route('project-dashboard') }}">cancel</a>
@@ -67,13 +82,14 @@
                 <input type="text" name="skillName[]" required>
                 <label for="skillType">Skill Type</label>
                 <select name="skillType[]" required>
-                <option value="">Select Skill Type</option>
-                <option value="Programming Languages">Programming Languages</option>
-                <option value="Technologies">Technologies</option>
-                <option value="Framework">Framework</option>
-                <option value="Database">Database</option>
-                <option value="Design">Design</option>
-                <option value="Source Control">Source Control</option>
+                    <option value="">Select Skill Type</option>
+                    <option value="Programming Languages">Programming Languages</option>
+                    <option value="Declarative Languages">Declarative Languages</option>
+                    <option value="Technologies">Technologies</option>
+                    <option value="Framework">Framework</option>
+                    <option value="Database">Database</option>
+                    <option value="Design">Design</option>
+                    <option value="Source Control">Source Control</option>
                 </select>
                 <button type="button" onclick="removeSkill(this)">Remove</button>
             `;
