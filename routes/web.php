@@ -28,11 +28,14 @@ Route::get('/',[visitorController::class,'visitorDashboard']);
 Route::get('/resume', function () {return view('visitor/pdfView');});
 Route::get('/projects',[visitorController::class,'listProjects'])->name('projects');
 Route::get('/projects/{project}', [visitorController::class,'viewProjects'])->name('view-detail');
+// Route::get('/logout',[AdminAuthController::class,'logoutUser']);
 Route::get('/awards',[visitorController::class,'listAwards']);
 // Route::get('/',[visitorController::class,'contactUser']);
 
 
-Route::get('/restricted', function(){return view('auth/landing-page');});
+Route::get('/restricted', function()
+{
+    return view('auth/landing-page');});
 
 
 //
@@ -69,7 +72,9 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
         Route::put('/update/{project}', [projectController::class, 'updateProject'])->name('update-project');
         Route::delete('/delete/{project}', [projectController::class, 'destroyProject'])->name('delete-project');
         Route::delete('/skills/{id}', [skillController::class, 'destroy'])->name('skills-destroy');
-        Route::post('c/create/upload', [picController::class, 'upload'])->name('upload');
+        Route::post('/upload-picture', [projectController::class, 'storePicture'])->name('upload-picture');
+        Route::delete('/pictures/{id}', [projectController::class, 'deletePicture'])->name('delete-picture');
+        Route::get('/download/{id}', [projectController::class, 'download'])->name('pic-download');
     });
 
     //Route for award
@@ -102,4 +107,4 @@ Route::prefix('/dashboard')->middleware('isLoggedIn')->group(function () {
     
     //Logout
     Route::get('/logout',[AdminAuthController::class,'logoutUser']);
-}); 
+});

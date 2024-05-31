@@ -155,6 +155,8 @@ return [
     |
     */
 
+    
+    'Debugbar' => Barryvdh\Debugbar\Facade::class,
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...

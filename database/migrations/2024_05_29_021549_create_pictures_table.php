@@ -13,19 +13,17 @@ return new class extends Migration
     {
         Schema::create('pictures', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('project_id')->nullable();
-            $table->unsignedBigInteger('award_id')->nullable();
+            $table->unsignedBigInteger('project_id');
             $table->binary('picture');
+            $table->string('name_pic');
+            $table->string('descPic')->nullable();
+            $table->boolean('pin')->default(false);
+            $table->string('mime');
             $table->timestamps();
 
             $table->foreign('project_id')
                 ->references('id')
                 ->on('project')
-                ->onDelete('cascade');
-
-            $table->foreign('award_id')
-                ->references('id')
-                ->on('award')
                 ->onDelete('cascade');
         });
     }

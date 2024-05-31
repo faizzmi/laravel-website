@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Skill;
+use App\Models\Pictures;
 use Illuminate\Support\Facades\DB;
 
 class visitorController extends Controller
@@ -69,13 +70,18 @@ class visitorController extends Controller
         $projects = Project::where('user_id', 1)->get();
 
         $projectSkills = [];
+        $awards = Award::all();
 
         foreach ($projects as $proj) {
             $skills = Skill::where('project_id', $proj->id)->orderBy('skillName', 'asc')->get();
             $projectSkills[$proj->id] = $skills;
+
+            $pictures = Pictures::where('project_id',$proj->id)->get();
+            $projectPic[$proj->id] = $pictures;
+            $display[$proj->id] = $pictures->first();
         }
 
-        return view('visitor.projectDetail', compact('project', 'projectSkills'));
+        return view('visitor.projectDetail', compact('project', 'projectSkills','awards','projectPic','display'));
     }
 
     public function listAwards()

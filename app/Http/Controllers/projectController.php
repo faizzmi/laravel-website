@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Skill;
 use Session;
 use App\Models\Project;
+use App\Models\Award;
 
 class projectController extends Controller
 {
@@ -34,7 +35,63 @@ class projectController extends Controller
         return view('admin.projectDashboard', compact('user', 'projects', 'projectSkills'));
     }
     
+    public function storePicture(Request $request)
+    {
+        $project_id = $request->project_id;
+        
+        $request->validate([
+            'file' => 'required|mimes:jpeg,bmp,png,pdf,jpg',
+            'name' => 'required|max:255',
+        ]);
+        
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->getRealPath();
+            $ext = $request->file('file')->extension();
+            $doc = file_get_contents($path);
+            $base64 = base64_encode($doc);
+            $mime = $request->file('file')->getClientMimeType();
+        
+            $picture = new Pictures();
+            $picture->project_id = $project_id;
+            $picture->name_pic = $request->name . '.' . $ext;
+            $picture->descPic = $request->descPic ?? null;
+            $picture->pin = $request->pin ?? false;
+            $picture->picture = $base64;
+            $picture->mime = $mime;
+            
+            $picture->save();
+        
+            return redirect('/dashboard/project/edit/' . $project_id)->with('successPro', 'Picture uploaded successfully.');
+        } else {
+            return redirect('/dashboard/project/edit/' . $project_id)->with('errorPro', 'Picture failed to upload.');
+        }
+        
+    }
     
+    public function deletePicture($id)
+    {
+        $picture = Pictures::findOrFail($id);
+        $project_id = $picture->project_id;
+        $picture->delete();
+
+        // return back()->with('success', 'Picture deleted successfully.');
+        return redirect('dashboard/project/edit/' . $project_id)->with('successPro','Picture deleted successfully.');
+    }
+
+    public function download($id)
+    {
+        $picture = Pictures::find($id);
+
+        $file_contents = base64_decode($picture->picture);
+
+        return response($file_contents)
+            ->header('Cache-Control', 'no-cache private')
+            ->header('Content-Description', 'File Transfer')
+            ->header('Content-Type', $picture->mime)
+            ->header('Content-length', strlen($file_contents))
+            ->header('Content-Disposition', 'attachment; filename=' . $picture->name_pic)
+            ->header('Content-Transfer-Encoding', 'binary');
+    }
 
     public function viewProject(Project $project){
         $userId = Session::get('loginId');
@@ -98,7 +155,8 @@ class projectController extends Controller
     public function editeProject(Project $project) {
         $projectId = $project->id;
         $skills = Skill::where('project_id', $projectId)->get();
-        return view('admin.editProject', compact('project','skills'));
+        $pictures = Pictures::where('project_id', $projectId)->get();
+        return view('admin.editProject', compact('project','skills','pictures'));
     }
 
     public function updateProject(Request $request, $id) {
@@ -120,7 +178,7 @@ class projectController extends Controller
     
         // Remove existing skills and add updated ones
         $project->skills()->delete();
-    
+
         foreach ($request->skillName as $key => $skillName) {
             $skill = new Skill();
             $skill->project_id = $project->id;
@@ -128,7 +186,7 @@ class projectController extends Controller
             $skill->skillType = $request->skillType[$key];
             $skill->save();
         }
-    
+
         return redirect('dashboard/project')->with('successPro', 'Your project updated successfully');
     }
 

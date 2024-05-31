@@ -27,7 +27,7 @@
             
         </div>
     </section>
-    <div class="h-[300px]"></div>
+    <div class="h-[100px]"></div>
 </main>
 
 @endsection

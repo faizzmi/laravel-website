@@ -9,6 +9,7 @@ class Pictures extends Model
 {
     use HasFactory;
     protected $table = 'pictures';
+    protected $fillable = ['project_id', 'picture', 'name_pic','mime','pin'];
 
     public function project(){
         return $this->belongsTo(Project::class);

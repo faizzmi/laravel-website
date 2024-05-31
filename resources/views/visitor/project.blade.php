@@ -20,6 +20,9 @@
                             
                             <div class="size-60 px-6 pt-4">
                                 <ion-icon name="folder"></ion-icon>
+                                @for ($i = 0; $i < $project->award; $i++)
+                                    <ion-icon name="trophy"></ion-icon>
+                                @endfor
                                 <div class="font-bold text-xl mb-2">{{ $project->projectName }}</div>
                                 <p class="text-gray-700 text-base">{{ $project->projectType }}</p>
                                 {{-- <div class="pt-2">
@@ -36,7 +39,7 @@
             
         </div>
     </section>
-    <div class="h-[300px]"></div>
+    <div class="h-[100px]"></div>
 </main>
 
 @endsection

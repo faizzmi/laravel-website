@@ -1,8 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    .upright {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+    }
+
+    .box {
+        color: black;
+        padding: 20px;
+        margin: 20px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+
 <main class="max-w-[1920px] mx-auto bg-stone-50 overflow-hidden">
-    <section style="background-image: url('assets/images/w5.jpg')"
+    <section style="background-image: url('assets/images/ng-portfolio1.jpg')"
                 class="h-[480px] xl:h-[640px] bg-gradient-to-r from-[#2E2824] to-[#12100E] bg-center lg:bg-cover bg-no-repeat bg-fixed xl:rounded-bl-[290px]">
         <div class="container mx-auto h-full flex items-center justify-center xl:justify-start">
             <div class=" w-[567px] flex flex-col p-12 items-center text-center xl:text-left lg:items-start">
@@ -53,6 +69,10 @@
                 
                 <div class="order-1 md:order-2 xl:order-none xl:max-w-[350px] mx-auto xl:max-w-none xl:mx-0">
                     <img src="{{asset('assets/images/images.jpg')}}" alt="">
+                    {{-- <span class="box upright md:text-left lg:text-justify">
+                        75 6E 66 69 6E 69 73 68 65 64 2E <br />
+                        65 74 65 72 6E 61 6C 6C 79
+                    </span> --}}
                 </div>
             </div>
             
@@ -159,7 +179,7 @@
         </div>
     </section>
 
-    <div class="h-[300px]"></div>
+    <div class="h-[100px]"></div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

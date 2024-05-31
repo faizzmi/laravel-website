@@ -29,4 +29,8 @@ class Project extends Model
     public function pictures(){
         return $this->hasMany(Pictures::class);
     }
+
+    // public function awards(){
+    //     return $this->hasMany(Award::class);
+    // }
 }

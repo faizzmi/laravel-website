@@ -15,7 +15,11 @@ class Award extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function pictures(){
-        return $this->hasMany(Pictures::class);
+    public function project(){
+        return $this->belongsTo(Project::class);
     }
+
+    // public function pictures(){
+    //     return $this->hasMany(Pictures::class);
+    // }
 }

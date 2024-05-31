@@ -79,7 +79,7 @@
                 <label for="linkProject">Link Project</label>
                 <input type="text" id="linkProject" name="linkProject" value="{{ $project->linkProject }}">
             </div>
-
+            
             <div>
                 <button type="submit">Save edit</button>
                 <a href="{{ route('project-dashboard') }}">Cancel</a>
@@ -87,6 +87,94 @@
         </form>
     </div>
 
+    {{-- <div>
+        <div>
+            <form action="{{ route('upload-picture') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div>
+                    <label for="picture">Upload Picture</label>
+                    <input type="text" id="name_pic" name="name_pic" required>
+                    <input type="hidden" name="project_id" value="{{ $project->id }}"> <!-- Assuming you have a project_id variable available -->
+                    <input type="file" name="picture" accept="image/jpeg, image/png, image/gif" required>
+                    <button type="submit">Upload Picture</button>
+                </div>
+            </form>
+        </div> --}}
+        
+        <div>
+            <!-- Display Uploaded Pictures -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Picture Name</th>
+                        <th>Description Name</th>
+                        <th>Actions</th> <!-- Add a new column for actions -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($pictures as $picture)
+                    <tr>
+                        <td>{{ $picture->id }}</td>
+                        <td>{{ $picture->name_pic }}</td>
+                        <td>{{ $picture->descPic }}</td>
+                        <td>
+                            <div>
+                                <form action="{{ route('delete-picture', $picture->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                            <div>
+                                <td><a href="{{ route('pic-download', $picture->id) }}">Download</a></td>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        
+<form action="{{ route('upload-picture') }}" method="post" enctype="multipart/form-data">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <div class="row">
+        <div>
+            <br />
+                @csrf
+                <div class="form-group">
+                    <label for="name">Name Pic</label>
+                    <input type="text" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter document name">
+                    <br>
+                    <label for="name">Description Pic</label><br>
+                    <textarea class="form-control" name="descPic" id="descPic" placeholder="Enter desc pic" style="width: 80vw; height: 30vh;resize: none;"></textarea>
+
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control" name="file" required>
+                    <input type="hidden" name="project_id" value="{{ $project->id }}">
+                </div>
+                <div>
+                    <label for="pin">Pin</label>
+                    <input type="checkbox" name="pin" id="pin" value="1">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+    </div>
     <script>
         function addSkill() {
             console.log("Adding skill...");

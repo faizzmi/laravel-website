@@ -60,13 +60,47 @@
         </div>
 
         {{-- <div>
-            <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('upload.picture') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="file" name="file" accept="image/jpeg, image/png, image/gif">
-                <button type="submit">Upload</button>
-                
+                <input type="hidden" name="project_id" value="{{ $project_id }}"> <!-- Assuming you have a project_id variable available -->
+                <input type="file" name="picture" accept="image/jpeg, image/png, image/gif" required>
+                <button type="submit">Upload Picture</button>
             </form>
+        </div>
+
+        <div>
+            <!-- Display Uploaded Pictures -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Picture</th>
+                        <th>Actions</th> <!-- Add a new column for actions -->
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($pictures as $picture)
+                    <tr>
+                        <td>{{ $picture->id }}</td>
+                        <td><img src="" alt="Picture" class="w-20 h-20"></td>
+                        <td>
+                            <div>
+                                <form action="{{ route('delete.picture', $picture->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </div>
+                            <div>
+                                <a href="{{ $picture->picture }}" target="_blank">Open Picture</a>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div> --}}
+
         <div>
             <button type="submit" >Add New</button>
             <a href="{{ route('project-dashboard') }}">cancel</a>
