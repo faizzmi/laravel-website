@@ -7,6 +7,12 @@
         text-orientation: mixed;
     }
 
+    .weird2{
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+    }
+
     .pixelify-sans-7401 {
         font-family: "VT323", monospace;
         font-weight: 400;
@@ -129,7 +135,7 @@
             <div class="flex flex-col xl:flex-row xl:gap-[4px] justify-center">
                 <div class="max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 m-auto">
                     <div class="w-full flex justify-center items-center sm:p-4 md:p-4">
-                        <p class="weird {{ $hiddenD }} pixelify-sans-7401 prevent-select" >
+                        <p class="weird2 {{ $hiddenD }} pixelify-sans-7401 prevent-select" >
                             53 75 63 63 65 73 73
                         </p>
                         <div class="w-[800px] h-[400px] bg-neutral-300 flex justify-center items-center">
@@ -150,26 +156,19 @@
                     </div>
 
                     @foreach($projectPic[$project->id] as $picture)
-                        <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-[4px]">
+                    <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-4">
+                        @if ($picture->pin == 1)
+                            <q class="text-center text-justify border-l-4 border-stone-500 bg-stone-100 px-8 py-2 rounded order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
+                                <i>{{ $picture->descPic }}</i>
+                            </q>
+                        @else
                             <div class="order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
-                                @php
-                                    $pin = $picture->pin;
-                                    if ($pin == 1){
-                                        $cssClass = "hidden";
-                                        $cssClass2 = "";
-                                    } else {
-                                        $cssClass = "";
-                                        $cssClass2 = "hidden";
-                                    }
-                                @endphp
-                                <p class="text-center text-justify {{ $cssClass }}">
+                                <p class="text-center text-justify">
                                     {{ $picture->descPic }}
                                 </p>
                             </div>
-                            <q class="text-center text-justify {{ $cssClass2 }} border-l-4 border-stone-500 bg-stone-100 px-8 py-2 rounded">
-                                <i>{{ $picture->descPic }}</i>
-                            </q>
-                        </div>
+                        @endif
+                    </div>
                     @endforeach
 
                     <span style="color: #000000; opacity: 1; transform: none;" class="m-auto">...</span>

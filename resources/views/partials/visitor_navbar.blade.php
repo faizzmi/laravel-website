@@ -10,7 +10,7 @@
                     <a class="uppercase hover:text-gray-500" href="/">About</a>
                 </li>
                 <li>
-                    <a class="uppercase hover:text-gray-500" href="/projects"s>Projects</a>
+                    <a class="uppercase hover:text-gray-500" href="/projects">Projects</a>
                 </li>
                 <li>
                     <a class="uppercase hover:text-gray-500" href="/awards">Awards</a>
