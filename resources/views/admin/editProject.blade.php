@@ -79,6 +79,11 @@
                 <label for="linkProject">Link Project</label>
                 <input type="text" id="linkProject" name="linkProject" value="{{ $project->linkProject }}">
             </div>
+
+            <div>
+                <label for="pinURL">Pin URL</label>
+                <input type="text" id="pinURL" name="pinURL" value="{{ $project->pinURL }}">
+            </div>
             
             <div>
                 <button type="submit">Save edit</button>
@@ -139,41 +144,41 @@
 
     <div>
         
-<form action="{{ route('upload-picture') }}" method="post" enctype="multipart/form-data">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-    <div class="row">
-        <div>
-            <br />
-                @csrf
-                <div class="form-group">
-                    <label for="name">Name Pic</label>
-                    <input type="text" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter document name">
-                    <br>
-                    <label for="name">Description Pic</label><br>
-                    <textarea class="form-control" name="descPic" id="descPic" placeholder="Enter desc pic" style="width: 80vw; height: 30vh;resize: none;"></textarea>
+    <form action="{{ route('upload-picture') }}" method="post" enctype="multipart/form-data">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <div class="row">
+            <div>
+                <br />
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">Name Pic</label>
+                        <input type="text" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Enter document name">
+                        <br>
+                        <label for="name">Description Pic</label><br>
+                        <textarea class="form-control" name="descPic" id="descPic" placeholder="Enter desc pic" style="width: 80vw; height: 30vh;resize: none;"></textarea>
 
+                    </div>
+                    <div class="form-group">
+                        <input type="file" class="form-control" name="file" required>
+                        <input type="hidden" name="project_id" value="{{ $project->id }}">
+                    </div>
+                    <div>
+                        <label for="pin">Pin</label>
+                        <input type="checkbox" name="pin" id="pin" value="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-                <div class="form-group">
-                    <input type="file" class="form-control" name="file" required>
-                    <input type="hidden" name="project_id" value="{{ $project->id }}">
-                </div>
-                <div>
-                    <label for="pin">Pin</label>
-                    <input type="checkbox" name="pin" id="pin" value="1">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
-    </div>
-</form>
+    </form>
     </div>
     <script>
         function addSkill() {

@@ -129,6 +129,7 @@ class projectController extends Controller
         $project->projectType = $request->projectType;
         $project->projectDesc = $request->projectDesc;
         $project->linkProject = $request->linkProject;
+        $project->pinURL = $request->pinURL;
         $res = $project->save();
         
         if($res){
@@ -164,6 +165,7 @@ class projectController extends Controller
             'developedYear' => 'required',
             'projectName' => 'required',
             'projectType' => 'required',
+            'pinURL' => 'required|url',
         ]);
     
         $project = Project::findOrFail($id);
@@ -174,6 +176,7 @@ class projectController extends Controller
             'projectType' => $request->projectType,
             'projectDesc' => $request->projectDesc,
             'linkProject' => $request->linkProject,
+            'pinURL' => $request->pinURL,
         ]);
     
         // Remove existing skills and add updated ones

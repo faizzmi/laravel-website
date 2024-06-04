@@ -8,10 +8,15 @@
     }
 
     .pixelify-sans-7401 {
-    font-family: "Pixelify Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+        font-family: "VT323", monospace;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .prevent-select {
+        -webkit-user-select: none; /* Safari */
+        -ms-user-select: none; /* IE 10 and IE 11 */
+        user-select: none; /* Standard syntax */
     }
 
 </style>
@@ -46,7 +51,7 @@
             Awards
         </a>
         <a href="{{ $project_link }}" target="{{ $target }}" class="bg-[#FFF083] {{ $hidden }} text-gray-800 font-semibold py-2 px-4 rounded shadow text-center mx-1">
-            Visit Site
+            Visit
         </a>
     </div>
 </div>
@@ -124,21 +129,21 @@
             <div class="flex flex-col xl:flex-row xl:gap-[4px] justify-center">
                 <div class="max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 m-auto">
                     <div class="w-full flex justify-center items-center sm:p-4 md:p-4">
-                        <p class="weird {{ $hiddenD }} pixelify-sans-7401">
+                        <p class="weird {{ $hiddenD }} pixelify-sans-7401 prevent-select" >
                             53 75 63 63 65 73 73
                         </p>
                         <div class="w-[800px] h-[400px] bg-neutral-300 flex justify-center items-center">
-                            <div class="{{ $hiddenD }} p-1 sm:p-4 md:p-4">
+                            <div class=" p-1 sm:p-4 md:p-4">
                                 <iframe width="800" height="400" oncontextmenu="return false;"
                                 class="rounded"
-                                    src="https://www.youtube.com/embed/ukzGumsVJ34?autoplay=1">
+                                    src={{ $project->pinURL }}>
                                 </iframe>
                             </div>
-                            <div class="{{ $hiddenP }} p-1">
+                            {{-- <div class="{{ $hiddenP }} p-1">
                                 <p class="w-[800px] h-[300px] text-center">Display</p>
-                            </div>
+                            </div> --}}
                         </div>
-                        <p class="weird {{ $hiddenD }} pixelify-sans-7401">
+                        <p class="weird {{ $hiddenD }} pixelify-sans-7401 prevent-select">
                             53 65 61 73 6F 6E 65 64
                             66 6F 72 <br>
                         </p>

@@ -59,6 +59,10 @@
             <input type="text" id="linkProject" name="linkProject">
         </div>
 
+        <div>
+            <label for="pinURL">Pin URL</label>
+            <input type="text" id="pinURL" name="pinURL">
+        </div>
         {{-- <div>
             <form action="{{ route('upload.picture') }}" method="POST" enctype="multipart/form-data">
                 @csrf
