@@ -6,9 +6,6 @@
         <div class="containermb-24 mx-auto xl:px-0">
             <div class="text-center mt-4">
                 <h2 class="text-4xl font-bold leading-tight">Projects</h2>
-                <p class="max-w-3xl mx-auto">
-                    Explore different projects, learn about features, and view associated skills.
-                </p>
             </div>
 
             <div class="grid-cols-2 sm:grid md:grid-cols-4 p-8">
@@ -23,8 +20,8 @@
                                 @for ($i = 0; $i < $project->award; $i++)
                                     <ion-icon name="trophy"></ion-icon>
                                 @endfor
-                                <div class="font-bold text-xl mb-2">{{ $project->projectName }}</div>
-                                <p class="text-gray-700 text-base">{{ $project->projectType }}</p>
+                                <div class="font-bold text-xl mb-2 uppercase">{{ $project->projectName }}</div>
+                                <p class="text-gray-700 text-base ">{{ $project->projectType }}</p>
                                 {{-- <div class="pt-2">
                                     @foreach ($projectSkills[$project->id] as $skill)
                                         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $skill->skillName }}</span>

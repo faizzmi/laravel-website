@@ -23,11 +23,11 @@
     </div>
     <div class="flex flex-col gap-1 items-start">
         <p>
-            <span class="font-mono mr-1  ">© 2024</span>
+            <span class="font-mono mr-1  ">©2024</span>
             <span calss="font-sans text-[0.85rem]">Faiz Azmi</span>
             <div class="flex flex-col gap-1 uppercase text-left text-[0.45rem] sm:text-[0.6rem]">
                 <p>DESIGNED AND DEVELOPED BY FAIZ AZMI.</p>
-                <p>FOR THE LOVE OF LOVELACE, EMBRACE POETICAL SCIENCE.</p>
+                <p class="uppercase">embrace the artistry of coding and crafting captivating</p>
             </div>
         </p>
     </div>

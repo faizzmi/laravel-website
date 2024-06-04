@@ -6,6 +6,14 @@
         writing-mode: vertical-rl;
         text-orientation: mixed;
     }
+
+    .pixelify-sans-7401 {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    }
+
 </style>
 <?php
     $project_link = $project->linkProject;
@@ -64,7 +72,7 @@
             <div class=" w-[567px] flex flex-col p-12 items-center text-center xl:text-left lg:items-start">
                 
                 <a href="{{ $project_link }}" target="{{ $target }}">
-                    <h1 class="text-white font-primary text-[32px] w-100 lg:text-[42px] leading-none">{{ $project->projectName }}</h1>
+                    <h1 class="text-white font-primary text-[32px] w-100 lg:text-[42px] leading-none uppercase">{{ $project->projectName }}</h1>
                 </a>
                 <h1 class="mt-4text-justify text-white">
                     {{ $project->projectType }}&nbsp;<span class="text-[#FFF083] font-medium">{{ $project->developedYear }}</span>
@@ -88,7 +96,7 @@
     
     <section id="about" class="mt-[40px] xl:mt-[50px] relative z-20">
         <div class="container mx-auto xl:px-0 md:px-4">
-            <h2 class="mb-2 text-xl font-bold text-center">What is {{ $project->projectName }}?</h2>
+            <h2 class="mb-2 text-xl font-bold text-center uppercase">What is {{ $project->projectName }}?</h2>
             
             <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-[4px]">
                 <div class="order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
@@ -116,7 +124,7 @@
             <div class="flex flex-col xl:flex-row xl:gap-[4px] justify-center">
                 <div class="max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 m-auto">
                     <div class="w-full flex justify-center items-center sm:p-4 md:p-4">
-                        <p class="weird {{ $hiddenD }}">
+                        <p class="weird {{ $hiddenD }} pixelify-sans-7401">
                             53 75 63 63 65 73 73
                         </p>
                         <div class="w-[800px] h-[400px] bg-neutral-300 flex justify-center items-center">
@@ -130,7 +138,7 @@
                                 <p class="w-[800px] h-[300px] text-center">Display</p>
                             </div>
                         </div>
-                        <p class="weird {{ $hiddenD }}">
+                        <p class="weird {{ $hiddenD }} pixelify-sans-7401">
                             53 65 61 73 6F 6E 65 64
                             66 6F 72 <br>
                         </p>
@@ -139,10 +147,23 @@
                     @foreach($projectPic[$project->id] as $picture)
                         <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-[4px]">
                             <div class="order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
-                                <p class="text-center text-justify">
-                                {{ $picture->descPic }}
+                                @php
+                                    $pin = $picture->pin;
+                                    if ($pin == 1){
+                                        $cssClass = "hidden";
+                                        $cssClass2 = "";
+                                    } else {
+                                        $cssClass = "";
+                                        $cssClass2 = "hidden";
+                                    }
+                                @endphp
+                                <p class="text-center text-justify {{ $cssClass }}">
+                                    {{ $picture->descPic }}
                                 </p>
                             </div>
+                            <q class="text-center text-justify {{ $cssClass2 }} border-l-4 border-stone-500 bg-stone-100 px-8 py-2 rounded">
+                                <i>{{ $picture->descPic }}</i>
+                            </q>
                         </div>
                     @endforeach
 
@@ -157,7 +178,7 @@
                                 @php
                                     $decoded_image = base64_decode($picture->picture);
                                 @endphp
-                                <img src="data:image/jpeg;base64,{{ base64_encode($decoded_image) }}" 
+                                <img src="data:image/jpeg;base64,{{ base64_encode($decoded_image) }}"
                                     alt="{{ $picture->name_pic }}"
                                     class="max-w-full h-auto p-1"
                                     oncontextmenu="return false;">

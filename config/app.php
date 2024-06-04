@@ -154,9 +154,7 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-
     
-    'Debugbar' => Barryvdh\Debugbar\Facade::class,
     'providers' => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
