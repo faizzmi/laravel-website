@@ -8,10 +8,10 @@
 <body>
     <h1>Edit Project</h1>
     @if(Session::has('successPro'))
-        <div>{{ Session::get('successPro') }}</div>
+        <div><p class="text-green-500">{{ Session::get('successPro') }}</p></div>
     @endif
     @if(Session::has('errorPro'))
-        <div>{{ Session::get('errorPro') }}</div>
+        <div><p class="text-red-500">{{ Session::get('errorPro') }}</p></div>
     @endif
     <div>
         <form method="POST" action="{{ route('update-project', $project->id) }}">
@@ -65,6 +65,7 @@
                         <option value="Database" {{ $skill->skillType == 'Database' ? 'selected' : '' }}>Database</option>
                         <option value="Design" {{ $skill->skillType == 'Design' ? 'selected' : '' }}>Design</option>
                         <option value="Source Control" {{ $skill->skillType == 'Source Control' ? 'selected' : '' }}>Source Control</option>
+                        <option value="Library" {{ $skill->skillType == 'Library' ? 'selected' : '' }}>Library</option>
                     </select>
                     <button type="button" onclick="removeSkill(this)">Remove</button>
                 </div>
@@ -200,6 +201,7 @@
                     <option value="Database">Database</option>
                     <option value="Design">Design</option>
                     <option value="Source Control">Source Control</option>
+                    <option value="Library">Library</option>
                 </select>
                 <button type="button" onclick="removeSkill(this)">Remove</button>
             `;

@@ -4,10 +4,10 @@
     <h3>About</h3>
 
     @if(Session::has('successAbout'))
-        <div>{{ Session::get('successAbout')}}</div>
+        <div><p class="text-green-500">{{ Session::get('successAbout')}}</p></div>
     @endif
     @if(Session::has('errorAbout'))
-        <div>{{ Session::get('errorAbout')}}</div>
+        <div><p class="text-red-500">{{ Session::get('errorAbout')}}</p></div>
     @endif
     @method('PUT')
     @csrf

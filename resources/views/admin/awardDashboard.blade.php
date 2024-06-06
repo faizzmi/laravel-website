@@ -11,10 +11,10 @@
 @else
 <div>
     @if(Session::has('successAw'))
-    <div>{{ Session::get('successAw')}}</div>
+        <div><p class="text-green-500">{{ Session::get('successAw')}}</p></div>
     @endif
     @if(Session::has('errorAw'))
-        <div>{{ Session::get('errorAw')}}</div>
+        <div><p class="text-red-600">{{ Session::get('errorAw')}}</p></div>
     @endif
     <table>
         <thead>

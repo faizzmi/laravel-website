@@ -165,7 +165,6 @@ class projectController extends Controller
             'developedYear' => 'required',
             'projectName' => 'required',
             'projectType' => 'required',
-            'pinURL' => 'required|url',
         ]);
     
         $project = Project::findOrFail($id);

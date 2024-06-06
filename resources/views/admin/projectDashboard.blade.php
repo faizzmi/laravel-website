@@ -14,10 +14,10 @@
 @else
     <div>
         @if(Session::has('successPro'))
-        <div>{{ Session::get('successPro')}}</div>
+            <div><p class="text-green-500">{{ Session::get('successPro')}}</p></div>
         @endif
         @if(Session::has('errorPro'))
-            <div>{{ Session::get('errorPro')}}</div>
+            <div><p class="text-red-500">{{ Session::get('errorPro')}}</p></div>
         @endif
         <table>
             <thead>

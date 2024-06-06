@@ -24,7 +24,7 @@
         -ms-user-select: none; /* IE 10 and IE 11 */
         user-select: none; /* Standard syntax */
     }
-
+    
 </style>
 <?php
     $project_link = $project->linkProject;
@@ -158,9 +158,9 @@
                     @foreach($projectPic[$project->id] as $picture)
                     <div class="flex flex-col xl:flex-row text-container xl:text-left justify-between xl:gap-4">
                         @if ($picture->pin == 1)
-                            <q class="text-center text-justify border-l-4 border-stone-500 bg-stone-100 px-8 py-2 rounded order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
+                            <p class="text-center text-justify border-l-4 border-stone-500 bg-stone-100 px-8 py-2 rounded order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
                                 <i>{{ $picture->descPic }}</i>
-                            </q>
+                            </p>
                         @else
                             <div class="order-2 xl:order-2 max-w-xl xl:max-w-[800px] flex flex-col items-center xl:items-start gap-4 px-4 m-auto">
                                 <p class="text-center text-justify">

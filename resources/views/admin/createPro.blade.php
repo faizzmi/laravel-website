@@ -2,11 +2,11 @@
     <h1>Add New Project</h1>
 
     @if(Session::has('successPro'))
-        <div>{{ Session::get('successPro')}}</div>
+        <div><p class="text-green-600">{{ Session::get('successPro')}}</p></div>
         @endif
-        @if(Session::has('errorPro'))
-            <div>{{ Session::get('errorPro')}}</div>
-        @endif
+    @if(Session::has('errorPro'))
+        <div><p class="text-red-600">{{ Session::get('errorPro')}}</p></div>
+    @endif
     <form method="POST" action="{{ route('store-project') }}">
         @csrf
         </div>
@@ -29,6 +29,7 @@
                 <option value="Quality Assurance">Quality Assurance</option>
                 <option value="Testing">Testing</option>
                 <option value="Maintenance">Maintenance</option>
+                <option value="Library">Library</option>
             </select>
         </div>
 
@@ -128,6 +129,7 @@
                     <option value="Database">Database</option>
                     <option value="Design">Design</option>
                     <option value="Source Control">Source Control</option>
+                    <option value="Library">Library</option>
                 </select>
                 <button type="button" onclick="removeSkill(this)">Remove</button>
             `;
