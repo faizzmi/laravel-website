@@ -16,10 +16,11 @@
                             {{-- <img class="rounded-t-lg" src="{{asset('assets/images/test.webp')}}" alt="Sunset in the mountains"> --}}
                             
                             <div class="size-60 px-6 pt-4">
-                                <ion-icon name="folder"></ion-icon>
-                                @for ($i = 0; $i < $project->award; $i++)
-                                    <ion-icon name="trophy"></ion-icon>
-                                @endfor
+                                @if ($project->pinProj == 1)
+                                    <ion-icon class="text-yellow-600" name="trophy"></ion-icon>
+                                @else
+                                    <ion-icon name="folder"></ion-icon>
+                                @endif
                                 <div class="font-bold text-xl mb-2 uppercase">{{ $project->projectName }}</div>
                                 <p class="text-gray-700 text-base ">{{ $project->projectType }}</p>
                                 {{-- <div class="pt-2">

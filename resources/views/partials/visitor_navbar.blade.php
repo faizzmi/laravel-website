@@ -2,7 +2,13 @@
     <nav class="flex h-20 justify-between items-center w-[92%] mx-auto">
         <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
         <div>
-            <h1 class="md:mx-auto font-bold text-xl">Faiz Azmi <span style="color: #5E452A; opacity: 1; transform: none;">.</span></h1>
+            <h1 class="md:mx-auto font-bold text-xl">
+                {{-- <ion-icon class="text-[#5E452A]" name="logo-foursquare"></ion-icon> --}}
+                Faiz Azmi
+                <span style="color: #5E452A; opacity: 1; transform: none;">
+                    .
+                </span>
+            </h1>
         </div>
         <div class="nav-links absolute bg-white md:static md:min-h-fit md:z-100 md:w-auto min-h-[40vh] left-0 top-[-100%]  w-full flex items-center px-5">
             <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">

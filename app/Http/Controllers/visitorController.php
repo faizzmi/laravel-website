@@ -53,7 +53,15 @@ class visitorController extends Controller
 
     public function listProjects()
     {
-        $projects = Project::where('user_id', 1)->get();
+        $projects = Project::where('user_id', 1)
+            ->orderBy('pinProj', 'desc')
+            ->orderBy('developedYear', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        // $projects = DB::select("
+        //     SELECT * FROM project WHERE user_id = 1
+        //     ORDER BY developedYear DESC, created_at DESC
+        // ");
 
         $projectSkills = [];
 
