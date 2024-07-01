@@ -1,5 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        accent: '#your-color-code',
+      },
+    },
+  },
+  variants: {
+    extend: {
+      textColor: ['hover'],
+    },
+  },
   content: [
     "./resources/views/**/*.blade.php",
     "./resources/**/*.js",
