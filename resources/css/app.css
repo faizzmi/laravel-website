@@ -1,27 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer components {
-    .text-accent {
-        @apply text-your-color-code;
-    }
-}
-
-@layer utilities {
-    .hover\:text-accent:hover {
-        @apply text-your-color-code;
-    }
-}
-
 body {
     @apply text-[22px];
-    }
-    
+}
+
 a {
     @apply text-[20px] hover:text-accent transition-all duration-300;
 }
-    
-.h1{
+
+.h1 {
     @apply text-[64px] lg:text-[84px] leading-none;
 }
