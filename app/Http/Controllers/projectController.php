@@ -147,7 +147,7 @@ class projectController extends Controller
             // $pic->picture = $request->file;
             // $pic->save();
 
-            return redirect('dashboard/project')->with('successPro','Your project edded succesfully');
+            return redirect('dashboard/project')->with('successPro','Your project added succesfully');
         }else{
             return redirect('dashboard/project')->with('errorPro','Something wrong');
         }
